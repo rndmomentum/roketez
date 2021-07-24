@@ -7,7 +7,7 @@ E-Learning Momentum Internet
 1. Clone Project
 
 ```
-https://github.com/danialadzhar/momentumlearning.git
+https://github.com/danialadzhar/roketez.git
 ```
 
 2. Dalam Folder Momentumlearning, Run :
