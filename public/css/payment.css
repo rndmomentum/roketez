@@ -1,0 +1,47 @@
+.c-p-top-bottom{
+    padding-top: 50px; 
+    padding-bottom: 50px;
+}
+span.logos.logos-block {
+    color: #333;
+    display: inline-block;
+    font-family: "Netflix Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    position: relative;
+    text-align: left;
+}
+img.logoIcon.VISA {
+    background-image: none;
+    border-width: 0;
+    color: #333;
+    float: left;
+    font-family: "Netflix Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 25px;
+    margin: 1px 6px 1px 0;
+    max-width: 100%;
+    text-align: left;
+    width: auto;
+}
+img.logoIcon.MASTERCARD {
+    background-image: none;
+    border-width: 0;
+    color: #333;
+    float: left;
+    font-family: "Netflix Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 25px;
+    margin: 1px 6px 1px 0;
+    max-width: 100%;
+    text-align: left;
+    width: auto;
+}
+img.logoIcon.AMEX {
+    background-image: none;
+    border-width: 0;
+    color: #333;
+    float: left;
+    font-family: "Netflix Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 25px;
+    margin: 1px 6px 1px 0;
+    max-width: 100%;
+    text-align: left;
+    width: auto;
+}

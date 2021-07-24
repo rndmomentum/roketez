@@ -1,0 +1,46 @@
+/* Welcome page sign up */
+body{
+  background-color: #000000;
+  color: #fff
+}
+
+.bg-img {
+ /* The image used */
+ background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../image/bg-cover-6.jpg');
+
+ padding-top: 220px;
+ padding-bottom: 160px;
+
+ min-height: 100%;
+
+ /* Center and scale the image nicely */
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+}
+
+/*right text */
+.right {
+  position: absolute;
+  top: 28px;
+  right: 5%;
+}
+
+/*left text */
+.left {
+  position: absolute;
+  top: 28px;
+  left: 5%;
+}
+
+.size-title{
+  font-size: 50px;;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  .size-besar{
+    width: 30%;
+  }
+}
