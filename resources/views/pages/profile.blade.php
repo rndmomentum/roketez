@@ -29,6 +29,7 @@
             <p>Update latest information</p>
         </div>
         <form action="{{ url('profile/update') }}/{{ $user->user_id }}" method="POST" class="needs-validation" novalidate>
+            @csrf
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
