@@ -90,7 +90,7 @@ class AdminController extends Controller
 
         // February
         $fromFebruary = date('Y-02-01');
-        $toFebruary = date('Y-02-31');
+        $toFebruary = date('Y-02-30');
         $february = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromFebruary . " 00:00:00", $toFebruary . " 23:59:59"])->sum('price');
 
         // Mac
