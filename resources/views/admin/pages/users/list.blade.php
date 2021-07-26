@@ -9,12 +9,11 @@
 @endsection
 
 @section('content')
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">List Users</h1>
+</div>
+
 <div class="row">
-    <div class="col-md-12">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">List Users</h1>
-        </div>
-    </div>
     <div class="col-md-12">
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -65,88 +64,6 @@
     </div>
 
     <div class="col-md-12 mt-2">
-        @if(isset($details))
-            <table class="table">
-                <thead class="thead-dark">
-                <tr>
-                    <th>#</th>
-                    <th>User ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th><span data-feather="settings"></span></th>
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach($users as $user)
-                    <tr>  
-                        <td>{{ $count++ }}</td>
-                        <td>{{ $user->user_id }}</td>
-                        <td>{{ $user->firstname }} {{ $user->lastname }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>
-                            @if($user->status == 'active')
-                                <span class="badge badge-success">Active</span>
-                            @endif
-
-                            @if($user->status == 'pending')
-                                <span class="badge badge-warning">Pending</span>
-                            @endif
-                            
-                            @if($user->status == 'incomplete')
-                                <span class="badge badge-dark">Incomplete</span>
-                            @endif
-
-                            @if($user->status == 'past_due')
-                                <span class="badge badge-danger">Past Due</span>
-                            @endif
-
-                            @if($user->status == 'canceled')
-                                <span class="badge badge-dark">Canceled</span>
-                            @endif
-
-                            @if($user->status == 'incomplete_expired')
-                                <span class="badge badge-danger">Incomplete Expired</span>
-                            @endif
-                        </td>
-                        <td>
-                            <a href="{{ url('admin/user/edit') }}/{{ $user->user_id }}" target="_blank" class="text-decoration-none btn btn-sm btn-light"><i class="fas fa-pencil-alt"></i></a>
-                            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{ $user->user_id }}"><i class="fas fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                    <!-- Delete User -->
-                    <div class="modal fade" id="delete{{ $user->user_id }}" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title">Delete User</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure you want to delete?</p>
-
-                                    <b>Information You Will Remove :</b>
-                
-                                    <ul>
-                                    <li>Subscription</li>
-                                    <li>Payment History</li>
-                                    <li>User Details</li>
-                                    </ul>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <a href="{{ url('admin/user/delete') }}/{{ $user->user_id }}" class="text-decoration-none btn btn-danger">Delete</a>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </tbody>
-            </table>
-        @endif
-
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -228,7 +145,7 @@
         </table>
     </div>
 
-    <div class="col-md-12 mt-3">
+    <div class="col-md-12 mt-2">
         <span class="float-right">
             {{ $users->links() }}
         </span>

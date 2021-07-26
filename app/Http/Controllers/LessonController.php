@@ -26,7 +26,7 @@ class LessonController extends Controller
 
             $count = 1;
             $courses = Courses::all();
-            $lessons = Lessons::where('creator_id', $admin_id)->orderBy('id', 'Desc')->paginate(15);
+            $lessons = Lessons::where('creator_id', $admin_id)->orderBy('id', 'Desc')->paginate(10);
 
             return view('admin.pages.lessons.list', compact('lessons','count','courses'));
         }
@@ -154,7 +154,7 @@ class LessonController extends Controller
     {   
         $count = 1;
         $courses = Courses::all();
-        $lessons = Lessons::where('title','LIKE','%'. $request->search.'%')->paginate(15);
+        $lessons = Lessons::where('title','LIKE','%'. $request->search.'%')->paginate(10);
 
         if(count($lessons) > 0)
         {

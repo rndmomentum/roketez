@@ -16,7 +16,7 @@
 <form action="{{ url('admin/courses/post') }}" enctype="multipart/form-data" method="POST" class="needs-validation" novalidate>
     @csrf
     <div class="row">
-
+        
         <!-- Alert -->
         @if(session('success'))
         <div class="col-md-12">

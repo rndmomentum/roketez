@@ -13,14 +13,18 @@
     <h1 class="h2">Update Stripe API KEY</h1>
 </div>
 
-@if(session('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session('success') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="row">
+    @if(session('success'))
+        <div class="col-md-12">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    @endif
 </div>
-@endif
 
 <form action="{{ url('admin/stripe-api/update') }}" method="POST">
     @csrf

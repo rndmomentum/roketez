@@ -30,7 +30,7 @@ class CourseController extends Controller
             $admin_id = Auth::guard('admin')->user()->admin_id;
 
             $count = 1;
-            $courses = Courses::where('creator_id', $admin_id)->orderBy('id', 'Desc')->paginate(15);
+            $courses = Courses::where('creator_id', $admin_id)->orderBy('id', 'Desc')->paginate(10);
 
             return view('admin.pages.courses.list', compact('courses','count'));
 
@@ -198,7 +198,7 @@ class CourseController extends Controller
         $admin_id = Auth::guard('admin')->user()->admin_id;
 
         $count = 1;
-        $courses = Courses::where('title','LIKE','%'. $request->search.'%')->orWhere('description','LIKE','%'. $request->search.'%')->paginate(15);
+        $courses = Courses::where('title','LIKE','%'. $request->search.'%')->orWhere('description','LIKE','%'. $request->search.'%')->paginate(10);
 
         if(count($courses) > 0)
         {
