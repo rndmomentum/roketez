@@ -43,42 +43,48 @@ class UpdatePaymentHistory extends Command
      */
     public function handle()
     {
-        // Define api key
-        $apikey = StripeApi::orderBy('id','Desc')->first();
-
-        Stripe\Stripe::setApiKey($apikey->secret_api_key);
 
         $subscriptions = Subscription::all();
-        $membership = Memberships::orderBy('id', 'Desc')->first();
+        $users = User::all();
+
+        // Define api key
+        $apikey = StripeApi::orderBy('id','Desc')->first();
+        Stripe\Stripe::setApiKey($apikey->secret_api_key);
         $date = date('d-m-Y');
 
         foreach ($subscriptions as $subscription) 
         {
+            foreach($users as $user) {
 
-            $subscription_stripe = Stripe\Subscription::retrieve(
-                $subscription->subscription_id,
-                []
-            );
-
-            if(date('d-m-Y', $subscription_stripe->current_period_end) == $date)
-            {
-
-                $get_payment_history = PaymentHistory::orderBy('id','Desc')->first();
-                $total = $get_payment_history->id + 1;
-                $order_id = "100" . $total;
-
-                // Payment History
-                PaymentHistory::create(array(
-
-                    'order_id' => $order_id,
-                    'stripe_id' => $subscription->stripe_id,
-                    'user_id' => $subscription->user_id,
-                    'membership_id' => $subscription->membership_id,
-                    'invoice_id' => $subscription_stripe->latest_invoice,
-                    'price' => $subscription->price,
-                    'status' => 'pending'
-
-                ));
+                if($subscription->user_id == $user->user_id)
+                {
+                    $subscription_stripe = Stripe\Subscription::retrieve(
+                        $subscription->subscription_id,
+                        []
+                    );
+        
+                    if(date('d-m-Y', $subscription_stripe->current_period_end) == $date)
+                    {
+        
+                        $get_payment_history = PaymentHistory::orderBy('id','Desc')->first();
+                        $total = $get_payment_history->id + 1;
+                        $order_id = "100" . $total;
+        
+                        // Payment History
+                        PaymentHistory::create(array(
+        
+                            'order_id' => $order_id,
+                            'stripe_id' => $subscription->stripe_id,
+                            'user_id' => $subscription->user_id,
+                            'membership_id' => $subscription->membership_id,
+                            'invoice_id' => $subscription_stripe->latest_invoice,
+                            'price' => $subscription->price,
+                            'status' => 'pending'
+        
+                        ));
+        
+                    }
+                }
 
             }
 
