@@ -149,7 +149,7 @@ class AdminController extends Controller
         $users = User::all();
         $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->where('status', 'paid')->orderBy('id','Desc')->paginate(10);
         // $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->count();
-        $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", ["2021-06-01 00:00:00", "2021-06-31 23:59:59"])->where('price', '199')->where('status', 'paid')->count();
+        $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", ["2021-06-01 00:00:00", "2021-06-31 23:59:59"])->where('status', 'paid')->count();
 
         // List pending payment
         $payment_history_pending = PaymentHistory::where('status', 'pending')->whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->orderBy('id','Desc')->get();
