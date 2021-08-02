@@ -75,7 +75,7 @@ class AdminController extends Controller
 
         // Year Range
         $fromYear = date('Y-01-01');
-        $toYear = date('Y-12-31');
+        $toYear = date('Y-07-31');
 
         // $sales_daily = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$today." 00:00:00", $today." 23:59:59"])->sum('price');
         $sales_monthly = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth." 00:00:00", $toMonth." 23:59:59"])->where('status', 'paid')->sum('price');
