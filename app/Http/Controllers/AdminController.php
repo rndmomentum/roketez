@@ -261,13 +261,6 @@ class AdminController extends Controller
 
       }
 
-    public function user_register()
-    {
-
-        return redirect('register');
-
-    }
-
     /**
      * Admin register page.
      * 
