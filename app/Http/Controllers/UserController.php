@@ -20,7 +20,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function index()
     {
@@ -45,7 +45,7 @@ class UserController extends Controller
     }
 
     /**
-     * Export User
+     * Export user with status and date
      * 
      * 
      */
@@ -61,7 +61,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display active user
+     * Display user by status
      * 
      * 
      */
@@ -74,42 +74,9 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function edit($id)
     {   
@@ -149,9 +116,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function update(Request $request, $id)
     {
@@ -170,8 +135,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function destroy($id)
     {
@@ -362,5 +326,33 @@ class UserController extends Controller
         $payment_history->save();
 
         return redirect()->back()->with('success', 'Update Payment History Created At');
+    }
+
+    /**
+     * Display date filter
+     * 
+     * 
+     */
+    public function date_filter()
+    {
+        $count = 1;
+        $subscriptions = Subscription::orderBy('id', 'Desc')->get();
+        $users = User::where('status','active')->orderBy('id', 'Desc')->get();
+
+        return view('admin.pages.users.date-filter', compact('users','count','subscriptions'));
+    }
+
+    /**
+     * Get list user who subscribe on same date
+     * 
+     * 
+     */
+    public function get_date_filter(Request $request)
+    {
+        $count = 1;
+        $subscriptions = Subscription::whereRaw("(created_at >= ? AND created_at <= ?)", [$request->date . " 00:00:00", $request->date . " 23:59:59"])->orderBy('id', 'Desc')->get();
+        $users = User::where('status', 'active')->orderBy('id', 'Desc')->get();
+
+        return view('admin.pages.users.date_filter', compact('users','count','subscriptions'));
     }
 }
