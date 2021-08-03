@@ -78,77 +78,78 @@ class AdminController extends Controller
         $toYear = date('Y-12-31');
 
         // $sales_daily = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$today." 00:00:00", $today." 23:59:59"])->sum('price');
-        $sales_monthly = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth." 00:00:00", $toMonth." 23:59:59"])->sum('price');
-        $sales_yearly = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromYear." 00:00:00", $toYear." 23:59:59"])->sum('price');
-        $total_transactions = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromYear." 00:00:00", $toYear." 23:59:59"])->count();
+        $sales_monthly = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth." 00:00:00", $toMonth." 23:59:59"])->where('status', 'paid')->sum('price');
+        $sales_yearly = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromYear." 00:00:00", $toYear." 23:59:59"])->where('status', 'paid')->sum('price');
+        $total_transactions = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromYear." 00:00:00", $toYear." 23:59:59"])->where('status', 'paid')->count();
         $count_active_user = User::where('status', 'active')->count();
 
         // January
         $fromJanuary = date('Y-01-01');
         $toJanuary = date('Y-01-31');
-        $january = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromJanuary . " 00:00:00", $toJanuary . " 23:59:59"])->sum('price');
+        $january = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromJanuary . " 00:00:00", $toJanuary . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // February
         $fromFebruary = date('Y-02-01');
         $toFebruary = date('Y-02-31');
-        $february = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromFebruary . " 00:00:00", $toFebruary . " 23:59:59"])->sum('price');
+        $february = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromFebruary . " 00:00:00", $toFebruary . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // Mac
         $fromMac = date('Y-03-01');
         $toMac = date('Y-03-31');
-        $mac = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMac . " 00:00:00", $toMac . " 23:59:59"])->sum('price');
+        $mac = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMac . " 00:00:00", $toMac . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // April
         $fromApril = date('Y-04-01');
         $toApril = date('Y-04-31');
-        $april = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromApril . " 00:00:00", $toApril . " 23:59:59"])->sum('price');
+        $april = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromApril . " 00:00:00", $toApril . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // May
         $fromMay = date('Y-05-01');
         $toMay = date('Y-05-31');
-        $may = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMay . " 00:00:00", $toMay . " 23:59:59"])->sum('price');
+        $may = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMay . " 00:00:00", $toMay . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // June
         $fromJune = date('Y-06-01');
         $toJune = date('Y-06-31');
-        $june = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromJune . " 00:00:00", $toJune . " 23:59:59"])->sum('price');
+        $june = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromJune . " 00:00:00", $toJune . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // July
         $fromJuly = date('Y-07-01');
         $toJuly = date('Y-07-31');
-        $july = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromJuly . " 00:00:00", $toJuly . " 23:59:59"])->sum('price');
+        $july = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromJuly . " 00:00:00", $toJuly . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // August
         $fromAugust = date('Y-08-01');
         $toAugust = date('Y-08-31');
-        $august = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromAugust . " 00:00:00", $toAugust . " 23:59:59"])->sum('price');
+        $august = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromAugust . " 00:00:00", $toAugust . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // September
         $fromSeptember = date('Y-09-01');
         $toSeptember = date('Y-09-31');
-        $september = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromSeptember . " 00:00:00", $toSeptember . " 23:59:59"])->sum('price');
+        $september = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromSeptember . " 00:00:00", $toSeptember . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // October
         $fromOctober = date('Y-10-01');
         $toOctober = date('Y-10-31');
-        $october = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromOctober . " 00:00:00", $toOctober . " 23:59:59"])->sum('price');
+        $october = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromOctober . " 00:00:00", $toOctober . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // November
         $fromNovember = date('Y-11-01');
         $toNovember = date('Y-11-31');
-        $november = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromNovember . " 00:00:00", $toNovember . " 23:59:59"])->sum('price');
+        $november = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromNovember . " 00:00:00", $toNovember . " 23:59:59"])->where('status', 'paid')->sum('price');
 
         // December
         $fromDecember = date('Y-12-01');
         $toDecember = date('Y-12-31');
-        $december = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromDecember . " 00:00:00", $toDecember . " 23:59:59"])->sum('price');
+        $december = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromDecember . " 00:00:00", $toDecember . " 23:59:59"])->where('status', 'paid')->sum('price');
 
 
         // List paid this month
         $count = 1;
         $users = User::all();
-        $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->orderBy('id','Desc')->paginate(10);
-        $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->count();
+        $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->where('status', 'paid')->orderBy('id','Desc')->paginate(10);
+        // $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->count();
+        $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", ["2021-07-01 00:00:00", "2021-07-31 23:59:59"])->where('status', 'paid')->count();
 
         // List pending payment
         $payment_history_pending = PaymentHistory::where('status', 'pending')->whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->orderBy('id','Desc')->get();
