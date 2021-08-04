@@ -107,56 +107,32 @@ class CheckoutController extends Controller
                     'price' => $membership->sales_price,
 
                 ));   
+                           
+                $get_payment_history = PaymentHistory::orderBy('id','Desc')->first();
+                $total = $get_payment_history->id + 1;
+                $order_id = "100" . $total;
+
+                // Payment History
+                PaymentHistory::create(array(
+
+                    'order_id' => $order_id,
+                    'stripe_id' => $customer->id,
+                    'user_id' => $user->user_id,
+                    'membership_id' => $membership->membership_id,
+                    'invoice_id' => $subscription->latest_invoice,
+                    'price' => $membership->sales_price,
+                    'status' => 'pending'
+
+                ));
 
                 $update_user->save();
-                           
-                // Check for first payment
-                $get_payment = PaymentHistory::all();
 
-                if($get_payment->isEmpty())
-                {
-                    $order_id = "1001";
-
-                    // Payment History
-                    PaymentHistory::create(array(
-
-                        'order_id' => $order_id,
-                        'stripe_id' => $customer->id,
-                        'user_id' => $user->user_id,
-                        'membership_id' => $membership->membership_id,
-                        'invoice_id' => $subscription->latest_invoice,
-                        'price' => $membership->sales_price,
-                        'status' => 'pending'
-
-                    ));
-
-                }else{
-
-                    $get_payment_history = PaymentHistory::orderBy('id','Desc')->first();
-                    $total = $get_payment_history->id + 1;
-                    $order_id = "100" . $total;
-
-                    // Payment History
-                    PaymentHistory::create(array(
-
-                        'order_id' => $order_id,
-                        'stripe_id' => $customer->id,
-                        'user_id' => $user->user_id,
-                        'membership_id' => $membership->membership_id,
-                        'invoice_id' => $subscription->latest_invoice,
-                        'price' => $membership->sales_price,
-                        'status' => 'pending'
-
-                    ));
-
-                }
-
-                \Mail::to($user->email)->send(new \App\Mail\Subscription());
-
-                // Redirect to Thank You Page
-                return redirect('thankyou');         
+                // \Mail::to($user->email)->send(new \App\Mail\Subscription());        
 
             }
+
+            // Redirect to Interest
+            return redirect('choose-interest'); 
 
         } catch (\Exception $ex) {
 
@@ -188,17 +164,6 @@ class CheckoutController extends Controller
 
         \Mail::to($user->email)->send(new \App\Mail\CancelSubscription());
         return redirect()->back()->with('success', 'Membership Canceled');
-
-    }
-
-    /**
-     * Thank You Page for Subscription
-     * 
-     */
-    public function thankyou()
-    {
-
-        return view('pages.signup.thankyou');
 
     }
 

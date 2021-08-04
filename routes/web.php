@@ -52,6 +52,10 @@ Route::get('ticket-support', 'HomeController@ticket_support');
 // Sign Out
 Route::get('signout', 'HomeController@signout');
 
+// Choose Interest Page
+Route::get('choose-interest', 'HomeController@choose_interest');
+Route::post('choose-interest/store', 'HomeController@store_interest');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -75,10 +79,6 @@ Route::get('signup/payment/{id}', 'SignUpController@payment');
 
 // Membership Checkout
 Route::post('checkout/membership/{id}', 'CheckoutController@checkout_for_membership');
-
-// Thank You Page
-Route::get('thankyou', 'CheckoutController@thankyou');
-Route::get('thankyou/course', 'CheckoutController@thankyou_page_courses');
 
 // Cancel Subscription
 Route::post('cancel/subscription', 'CheckoutController@cancel_subscription');
@@ -120,9 +120,6 @@ Route::post('admin/ticket-support/reply/{id}', 'AdminController@reply_ticket_sup
 Route::get('admin/role/create', 'AdminController@create');
 Route::post('admin/role/post', 'AdminController@store');
 Route::get('admin/role/list', 'AdminController@index');
-
-// User Register
-Route::post('user-register', 'AdminController@user_register');
 
 
 /*
@@ -166,6 +163,10 @@ Route::post('admin/sync-payment-history-status/{id}/{order_id}', 'UserController
 
 // Update created at
 Route::post('admin/update-created-at/{id}', 'UserController@update_created_at');
+
+// Date filter
+Route::get('admin/user/date-filter', 'UserController@date_filter');
+Route::get('admin/user/date-filter/update', 'UserController@get_date_filter');
 
 /*
 |--------------------------------------------------------------------------

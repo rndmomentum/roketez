@@ -37,7 +37,7 @@
 
         <!-- Footer -->
         <footer class="text-center mt-4 footer-top">
-            <small class="text-muted">All Right Reserved © 2020 Roketez</small>
+            <small class="text-muted">All Right Reserved © {{ date('Y') }} Roketez</small>
         </footer>
     </div>
 </body>

@@ -69,9 +69,6 @@
 
             <!-- Right -->
             <ul class="nav navbar-nav navbar-right align-items-center">
-                {{-- <li class="nav-item">
-                    <a class="nav-link active text-dark" href="{{ url('mycourses') }}">My Courses</a>
-                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="{{ asset('image/profile/avatar-image.png') }}" style="width: 42px; height: 42px;" class="rounded-circle" alt="Profile Image">
@@ -94,9 +91,7 @@
                                 </div>
                             </div>
                         </a>
-                        {{-- <small class="text-muted remove-hover dropdown-item mt-4"><b>Courses</b></small>
-                        <a class="dropdown-item remove-hover" href="{{ url('mycourses') }}">My Courses</a> --}}
-
+                        
                         <small class="text-muted remove-hover dropdown-item mt-2"><b>Account</b></small>
                         <a class="dropdown-item remove-hover" href="{{ url('myaccount') }}">Account Settings</a>
                         <a class="dropdown-item remove-hover" href="{{ url('subscription-history') }}">Subscription History</a>
