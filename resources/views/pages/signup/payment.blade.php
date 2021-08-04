@@ -108,7 +108,7 @@
                                     <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                                     Please Wait...
                                 </button>
-                                <button id="btn" type="submit" class="btn btn-danger">I Agree</button>
+                                <button id="btn" type="submit" class="btn btn-danger btn-block">I Agree</button>
                             </div>
                         </div>
                         </div>
