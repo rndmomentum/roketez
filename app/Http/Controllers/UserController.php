@@ -270,6 +270,8 @@ class UserController extends Controller
         $user->save();
         $subscription->delete();
 
+        return redirect('admin/users/list')->with('success', 'Delete Subscription!');
+
     }
 
     /**
