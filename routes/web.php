@@ -54,6 +54,7 @@ Route::get('signout', 'HomeController@signout');
 
 // Choose Interest Page
 Route::get('choose-interest', 'HomeController@choose_interest');
+Route::post('choose-interest/store', 'HomeController@store_interest');
 
 
 /*
