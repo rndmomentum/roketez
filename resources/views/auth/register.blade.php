@@ -33,7 +33,7 @@
 
                     <!-- Firstname -->
                     <div class="form-group">
-                        <input type="text" id="firstname" class="@error('firstname') is-invalid @enderror form-control" name="firstname" placeholder="Enter Firstname" required autofocus>
+                        <input type="text" id="firstname" class="@error('firstname') is-invalid @enderror form-control" value="{{ old('firstname') }}" name="firstname" placeholder="Enter Firstname" required autofocus>
                         @error('firstname')
                             <span class="invalid-feedback mt-3 text-center" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
 
                     <!-- Lastname -->
                     <div class="form-group">
-                        <input type="text" id="lastname" class="@error('lastname') is-invalid @enderror form-control" name="lastname" placeholder="Enter Lastname" required>
+                        <input type="text" id="lastname" class="@error('lastname') is-invalid @enderror form-control" value="{{ old('lastname') }}" name="lastname" placeholder="Enter Lastname" required>
                         @error('lastname')
                             <span class="invalid-feedback mt-3 text-center" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -63,7 +63,7 @@
 
                     <!-- Phone Number -->
                     <div class="form-group">
-                        <input type="text" id="phonenumber" class="@error('phonenumber') is-invalid @enderror form-control" name="phonenumber" onkeypress="return onlyNumberKey(event)" placeholder="Enter Phone Number" required>
+                        <input type="text" id="phonenumber" class="@error('phonenumber') is-invalid @enderror form-control" value="{{ old('phonenumber') }}" name="phonenumber" onkeypress="return onlyNumberKey(event)" placeholder="Enter Phone Number" required>
                         @error('phonenumber')
                             <span class="invalid-feedback mt-3 text-center" role="alert">
                                 <strong>{{ $message }}</strong>
