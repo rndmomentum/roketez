@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInteresetTables extends Migration
+class CreateInterestTables extends Migration
 {
     /**
      * Run the migrations.
@@ -28,6 +28,6 @@ class CreateInteresetTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('intereset');
+        Schema::dropIfExists('interest');
     }
 }
