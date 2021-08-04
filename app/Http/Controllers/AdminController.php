@@ -67,7 +67,7 @@ class AdminController extends Controller
     {   
 
         // Daily Sales
-        $today = date('Y-m-d');
+        $last_day = date('Y-m-d', strtotime("-1 days"));
 
         // Month Range
         $fromMonth = date('Y-m-01');
@@ -77,7 +77,6 @@ class AdminController extends Controller
         $fromYear = date('Y-01-01');
         $toYear = date('Y-12-31');
 
-        // $sales_daily = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$today." 00:00:00", $today." 23:59:59"])->sum('price');
         $sales_monthly = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth." 00:00:00", $toMonth." 23:59:59"])->where('status', 'paid')->sum('price');
         $sales_yearly = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromYear." 00:00:00", $toYear." 23:59:59"])->where('status', 'paid')->sum('price');
         $total_transactions = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromYear." 00:00:00", $toYear." 23:59:59"])->where('status', 'paid')->count();
@@ -143,19 +142,28 @@ class AdminController extends Controller
         $toDecember = date('Y-12-31');
         $december = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromDecember . " 00:00:00", $toDecember . " 23:59:59"])->where('status', 'paid')->sum('price');
 
-
-        // List paid this month
+        // Completed Payment Report - Daily
         $count = 1;
         $users = User::all();
-        $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->where('status', 'paid')->orderBy('id','Desc')->paginate(10);
-        // $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->count();
-        $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", ["2021-07-01 00:00:00", "2021-07-31 23:59:59"])->where('status', 'paid')->count();
+        $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->orderBy('id','Desc')->paginate(10);
+        $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->count();
+
+        // Display upcoming next invoice
+        // $next_date = date('Y-m-d',strtotime("next day of previous month"));
+        $next_date = date('Y-07-d', strtotime("+1 days"));
+        $next_date_previous_month = date("Y-m-d", strtotime($next_date . "-1 month"));
+        $upcoming_next_payment = Subscription::whereRaw("(created_at >= ? AND created_at <= ?)", [$next_date_previous_month . " 00:00:00", $next_date_previous_month . " 23:59:59"])->orderBy('id', 'Desc')->limit(10)->get();
+
+
+        // Failed Payment Report - Daily
+        $failed_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'unpaid')->orderBy('id', 'Desc')->paginate(10);
+        $count_failed_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'unpaid')->count();
 
         // List pending payment
         $payment_history_pending = PaymentHistory::where('status', 'pending')->whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->orderBy('id','Desc')->get();
 
         return view('admin.pages.dashboard', compact('sales_monthly', 'sales_yearly','count_payment_history','payment_history', 'users','count','count_active_user','january','february','mac','april',
-        'may','june','july','august','september','october','november','december', 'total_transactions', 'payment_history_pending'));
+        'may','june','july','august','september','october','november','december', 'total_transactions', 'payment_history_pending', 'count_failed_payment_history', 'failed_payment_history', 'upcoming_next_payment'));
 
     }   
 
