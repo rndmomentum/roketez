@@ -215,35 +215,6 @@
                     @endif
                 </div>
             </div>
-
-            <div class="card mt-4">
-                <div class="card-header bg-dark text-light">
-                    Upcoming Payment
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            @if ($upcoming_next_payment->isEmpty())
-                              <p>No Upcoming Payment</p>
-                            @else   
-                                <table class="table">
-                                    <tbody>
-                                        @foreach ($upcoming_next_payment as $value)
-                                            @foreach ($users as $user)
-                                                @if ($user->user_id == $value->user_id)
-                                                    <tr>
-                                                        <td><a href="{{ url('admin/user/edit') }}/{{ $user->user_id }}" target="_blank" class="text-decoration-none text-primary">{{ $user->name }}</a></td>
-                                                    </tr>
-                                                @endif
-                                            @endforeach
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 @endsection

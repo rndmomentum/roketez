@@ -148,12 +148,6 @@ class AdminController extends Controller
         $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->orderBy('id','Desc')->paginate(10);
         $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->count();
 
-        // Display upcoming next invoice
-        // $next_date = date('Y-m-d',strtotime("next day of previous month"));
-        $next_date = date('Y-07-d', strtotime("+1 days"));
-        $next_date_previous_month = date("Y-m-d", strtotime($next_date . "-1 month"));
-        $upcoming_next_payment = Subscription::whereRaw("(created_at >= ? AND created_at <= ?)", [$next_date_previous_month . " 00:00:00", $next_date_previous_month . " 23:59:59"])->orderBy('id', 'Desc')->limit(10)->get();
-
 
         // Failed Payment Report - Daily
         $failed_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'unpaid')->orderBy('id', 'Desc')->paginate(10);
@@ -163,7 +157,7 @@ class AdminController extends Controller
         $payment_history_pending = PaymentHistory::where('status', 'pending')->whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->orderBy('id','Desc')->get();
 
         return view('admin.pages.dashboard', compact('sales_monthly', 'sales_yearly','count_payment_history','payment_history', 'users','count','count_active_user','january','february','mac','april',
-        'may','june','july','august','september','october','november','december', 'total_transactions', 'payment_history_pending', 'count_failed_payment_history', 'failed_payment_history', 'upcoming_next_payment'));
+        'may','june','july','august','september','october','november','december', 'total_transactions', 'payment_history_pending', 'count_failed_payment_history', 'failed_payment_history'));
 
     }   
 
