@@ -145,7 +145,7 @@ class AdminController extends Controller
         // Completed Payment Report - Daily
         $count = 1;
         $users = User::all();
-        $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth." 00:00:00", $toMonth." 23:59:59"])->where('status', 'paid')->orderBy('id','Desc')->paginate(10);
+        $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->orderBy('id','Desc')->paginate(10);
         $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->count();
 
         // Display upcoming next invoice
