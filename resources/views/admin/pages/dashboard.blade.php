@@ -174,7 +174,19 @@
             </div>
         </div>
         <div class="col-md-4">
+
             <div class="card">
+                <div class="card-header bg-dark text-light">
+                    Daily Report
+                </div>
+                <div class="card-body">
+                    <p><b>Date : </b> {{ $last_day }}</p>
+                    <p><b>Total Collection : </b> RM {{ number_format($total_collection) }} </p>
+                    <p><b>Total Transactions : </b> {{ number_format($count_payment_history) }}</p>
+                </div>
+            </div>
+
+            <div class="card mt-4">
                 <div class="card-header bg-dark text-light">
                     KPI Report (Yearly)
                 </div>
@@ -201,9 +213,7 @@
                                             @foreach ($users as $user)
                                                 @if ($user->user_id == $value->user_id)
                                                     <tr>
-                                                        <td><a href="{{ url('admin/user/edit') }}/{{ $user->user_id }}"
-                                                                class="text-dark" target="_blank">{{ $user->firstname }}
-                                                                {{ $user->lastname }}</a></td>
+                                                        <td><a href="{{ url('admin/user/edit') }}/{{ $user->user_id }}" class="text-dark" target="_blank">{{ $user->firstname }} {{ $user->lastname }}</a></td>
                                                     </tr>
                                                 @endif
                                             @endforeach
