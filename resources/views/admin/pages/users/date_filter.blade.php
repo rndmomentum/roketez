@@ -37,7 +37,7 @@
     <div class="col-md-12">
         <form action="{{ url('admin/user/date-filter/update') }}" method="GET" class="needs-validation" novalidate>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" name="get_date" placeholder="exp. 2021-06-01" required>
+                <input type="text" class="form-control" name="date" placeholder="exp. 2021-06-01" required>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="submit">Search <span data-feather="search"></span></button>
                 </div>
