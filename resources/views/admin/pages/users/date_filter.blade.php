@@ -57,9 +57,9 @@
             </tr>
             </thead>
             <tbody>
-                @foreach ($subscriptions as $sub)
+                @foreach ($subscriptions as $item)
                     @foreach($users as $user)
-                        @if ($user->user_id == $sub->user_id)
+                        @if ($user->user_id == $item->user_id)
                             <tr>  
                                 <td>{{ $count++ }}</td>
                                 <td>{{ $user->firstname }} {{ $user->lastname }}</td>
