@@ -286,7 +286,7 @@ class HomeController extends Controller
 
                 // Get Membership History
                 $memberships = Memberships::orderBy('id', 'Desc')->get();
-                $memberships_history = PaymentHistory::where('user_id', $user->user_id)->orderBy('id', 'Desc')->get();
+                $payment_history = PaymentHistory::where('user_id', $user->user_id)->orderBy('id', 'Desc')->get();
 
                 // Subscription Detail
                 $subscription = Subscription::where('user_id', $user->user_id)->first();
@@ -295,7 +295,7 @@ class HomeController extends Controller
                 // Get status subscription
                 $get_status_subscription = Stripe\Subscription::retrieve($subscription->subscription_id);
 
-                return view('pages.subscriptionhistory', compact('user', 'memberships', 'memberships_history', 'subscription', 'get_membership_name', 'get_status_subscription'));
+                return view('pages.subscriptionhistory', compact('user', 'memberships', 'payment_history', 'subscription', 'get_membership_name', 'get_status_subscription'));
             }
         }
 
