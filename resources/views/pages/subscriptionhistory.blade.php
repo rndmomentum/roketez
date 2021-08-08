@@ -70,21 +70,25 @@
                     <tr>
                         <th>Order ID</th>
                         <th>Membership Name</th>
-                        <th>Quantity</th>
                         <th>Price</th>
-                        <th>Purchased At</th>
+                        <th>Status</th>
+                        <th>Created At</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($memberships_history as $membership)
+                    @foreach($payment_history as $payment)
                         @foreach($memberships as $get_membership)
-                            @if($get_membership->membership_id == $membership->membership_id)
+                            @if($get_membership->membership_id == $payment->membership_id)
                                 <tr>
-                                    <td>{{ $membership->order_id }}</td>
+                                    <td>{{ $payment->order_id }}</td>
                                     <td>{{ $get_membership->title }}</td>
-                                    <td>{{ $membership->quantity }}</td>
-                                    <td>RM {{ $membership->price }}</td>
-                                    <td>{{ $membership->purchased_at }}</td>
+                                    <td>RM {{ $payment->price }}</td>
+                                    <td>
+                                        @if($)
+                                            <span class="badge badge-success">Success</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $payment->created_at }}</td>
                                 </tr>
                             @endif
                         @endforeach
