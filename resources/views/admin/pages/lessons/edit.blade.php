@@ -35,12 +35,6 @@
                 <input type="text" class="form-control" name="title" placeholder="Enter Title" value="{{ $lesson->title }}" required>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="form-group">
-                <label>Description</label>
-                <textarea class="form-control" name="description" rows="3" placeholder="Enter Description" required>{{ $lesson->description }}</textarea>
-            </div>
-        </div>
 
         <!-- Setting -->
         <div class="col-md-12 mt-3">
