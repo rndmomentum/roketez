@@ -36,7 +36,6 @@
 
     <div class="col-md-12">
         <form action="{{ url('admin/user/date-filter/update') }}" method="GET" class="needs-validation" novalidate>
-            @csrf
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="get_date" placeholder="exp. 2021-06-01" required>
                 <div class="input-group-append">
