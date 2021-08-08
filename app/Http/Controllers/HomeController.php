@@ -13,6 +13,7 @@ use App\User;
 use App\Interest;
 
 use Auth;
+use Stripe;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
