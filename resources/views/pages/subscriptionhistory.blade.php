@@ -84,8 +84,12 @@
                                     <td>{{ $get_membership->title }}</td>
                                     <td>RM {{ $payment->price }}</td>
                                     <td>
-                                        @if($)
-                                            <span class="badge badge-success">Success</span>
+                                        @if($payment->status == 'paid')
+                                            <span class="badge badge-success">Paid</span>
+                                        @endif
+
+                                        @if($payment->status == 'unpaid')
+                                            <span class="badge badge-danger">Unpaid</span>
                                         @endif
                                     </td>
                                     <td>{{ $payment->created_at }}</td>
