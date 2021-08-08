@@ -341,7 +341,7 @@ class UserController extends Controller
         $subscriptions = PaymentHistory::orderBy('id', 'Desc')->limit(1)->get();
         $users = User::where('status','active')->orderBy('id', 'Desc')->get();
 
-        return view('admin.pages.users.date-filter', compact('users','count','subscriptions'));
+        return view('admin.pages.users.date_filter', compact('users','count','subscriptions'));
     }
 
     /**
