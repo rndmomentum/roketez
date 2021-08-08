@@ -148,7 +148,6 @@ class AdminController extends Controller
         $payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->orderBy('id','Desc')->paginate(10);
         $count_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->count();
 
-
         // Failed Payment Report - Daily
         $failed_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'unpaid')->orderBy('id', 'Desc')->paginate(10);
         $count_failed_payment_history = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'unpaid')->count();
@@ -156,8 +155,12 @@ class AdminController extends Controller
         // List pending payment
         $payment_history_pending = PaymentHistory::where('status', 'pending')->whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth . " 00:00:00", $toMonth . " 23:59:59"])->orderBy('id','Desc')->get();
 
+        // Daily Report
+        $total_collection = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$last_day . " 00:00:00", $last_day . " 23:59:59"])->where('status', 'paid')->sum('price');
+
         return view('admin.pages.dashboard', compact('sales_monthly', 'sales_yearly','count_payment_history','payment_history', 'users','count','count_active_user','january','february','mac','april',
-        'may','june','july','august','september','october','november','december', 'total_transactions', 'payment_history_pending', 'count_failed_payment_history', 'failed_payment_history'));
+        'may','june','july','august','september','october','november','december', 'total_transactions', 'payment_history_pending', 'count_failed_payment_history', 'failed_payment_history', 'last_day',
+        'total_collection'));
 
     }   
 
