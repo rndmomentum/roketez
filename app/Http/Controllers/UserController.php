@@ -338,7 +338,7 @@ class UserController extends Controller
     public function date_filter()
     {
         $count = 1;
-        $subscriptions = PaymentHistory::orderBy('id', 'Desc')->limit(10)->get();
+        $subscriptions = PaymentHistory::orderBy('id', 'Desc')->get();
         $users = User::where('status','active')->orderBy('id', 'Desc')->get();
 
         return view('admin.pages.users.date_filter', compact('users','count','subscriptions'));
@@ -352,7 +352,7 @@ class UserController extends Controller
     public function get_date_filter(Request $request)
     {
         $count = 1;
-        $subscriptions = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$request->date . " 00:00:00", $request->date . " 23:59:59"])->orderBy('id', 'Desc')->first();
+        $subscriptions = PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$request->date . " 00:00:00", $request->date . " 23:59:59"])->orderBy('id', 'Desc')->get();
         $users = User::where('status', 'active')->orderBy('id', 'Desc')->get();
 
         return view('admin.pages.users.date_filter', compact('users','count','subscriptions'));
