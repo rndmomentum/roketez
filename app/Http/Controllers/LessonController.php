@@ -62,6 +62,7 @@ class LessonController extends Controller
             'title' => $request->title,
             'course_id' => $request->course,
             'link_video' => $request->link,
+            'duration' => $request->duration,
             'creator_id' => Auth::guard('admin')->user()->admin_id,
 
         ));
@@ -120,6 +121,7 @@ class LessonController extends Controller
         $lesson->title = $request->title;
         $lesson->course_id = $request->course;
         $lesson->link_video = $request->link;
+        $lesson->duration = $request->duration;
 
         $lesson->save();
 

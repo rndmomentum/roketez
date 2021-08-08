@@ -62,6 +62,12 @@
                                 <input type="text" class="form-control" placeholder="Link Video" value="{{ $lesson->link_video }}" name="link" required>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Duration (Minutes)</label>
+                                <input type="text" class="form-control" value="{{ $lesson->duration }}" placeholder="Duration" name="duration" required>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ class Lessons extends Model
         'title',
         'course_id',
         'link_video',
+        'duration',
         'creator_id'
 
     ];

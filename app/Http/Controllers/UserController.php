@@ -132,11 +132,7 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'User Updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * 
-     */
+    // Delete user from database
     public function destroy($id)
     {
         
@@ -152,11 +148,7 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Remove payment history
-     * 
-     * 
-     */
+    // Remove payment history
     public function destroy_payment($id)
     {
         $payment_history = PaymentHistory::where('order_id', $id);
@@ -167,11 +159,7 @@ class UserController extends Controller
     }
 
 
-    /**
-     * Cancel Subscription
-     * 
-     * 
-     */
+    // Cancel subscription
     public function cancel_subscription($id)
     {   
         $user = User::where('user_id', $id)->first();
@@ -193,11 +181,7 @@ class UserController extends Controller
     }
 
 
-    /**
-     * Search user
-     * 
-     * 
-     */
+    // Search user
     public function search(Request $request)
     {   
         $count = 1;
@@ -216,11 +200,7 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Generate payment history
-     * 
-     * 
-     */
+    // Generate payment history
     public function generate_payment($id)
     {
 
@@ -243,21 +223,17 @@ class UserController extends Controller
             'course_id' => 0,
             'membership_id' => $membership->membership_id,
             'invoice_id' => 0,
-            'quantity' => 1,
             'price' => $subscription->price,
-            'purchased_at' => date('d-m-Y'),
-            'creator_id' => 'admin_5f3f1d5286ae7',
+            'status' => 'pending',
 
         ));
 
         return redirect()->back()->with('success', 'Payment History Generated!');
     }
 
-    /**
-     * Delete subscription
-     * Change user status to PENDING
-     * 
-     */
+
+     // Delete subscription
+     // Change user status to PENDING
     public function delete_subscription($id)
     {
         // Get subscription
@@ -274,11 +250,7 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Sync payment status
-     * 
-     * 
-     */
+    // Sync payment status
     public function sync_payment_status($id,$order_id)
     {
         //Stripe API KEY
@@ -314,11 +286,7 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Update Payment History Status');
     }
 
-    /**
-     * Update created at
-     * 
-     * 
-     */
+    // Update created at
     public function update_created_at(Request $request,$id)
     {
         $payment_history = PaymentHistory::where('order_id', $id)->first();
@@ -330,11 +298,7 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Update Payment History Created At');
     }
 
-    /**
-     * Display date filter
-     * 
-     * 
-     */
+    // Display date filter
     public function date_filter()
     {
         $count = 1;
@@ -344,11 +308,7 @@ class UserController extends Controller
         return view('admin.pages.users.date_filter', compact('users','count','subscriptions'));
     }
 
-    /**
-     * Get list user who subscribe on same date
-     * 
-     * 
-     */
+    // Get list user who subscribe on same date
     public function get_date_filter(Request $request)
     {
         $count = 1;
