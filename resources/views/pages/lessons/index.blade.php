@@ -46,9 +46,11 @@
                         @if($course->level == 'advanced')
                             <span class="badge badge-danger">Advanced</span>
                         @endif
+
                         @if($course->level == 'basic')
                             <span class="badge badge-primary">Basic</span>
                         @endif
+                        
                         <p style="color: #CDCCCC" class="mb-5 mt-3">
                             {{ $course->description }}
                         </p>
@@ -61,7 +63,10 @@
                     <div class="col-md-6 mb-3 mt-4">
                         <h2 class="text-light">LIST LESSONS</h2>
                         @foreach($lessons as $value)
-                            <h4 class="py-3"><a href="{{ url('lesson') }}/{{ $value->lesson_id }}" class="text-decoration-none @if($lesson->lesson_id == $value->lesson_id) text-warning @else text-light @endif font-weight-light"><i class="fas fa-play-circle"></i> {{ $value->title }}</a></h4>
+                            <h4 class="pt-4">
+                                <a href="{{ url('lesson') }}/{{ $value->lesson_id }}" class="text-decoration-none @if($lesson->lesson_id == $value->lesson_id) text-warning @else text-light @endif font-weight-light"><i class="fas fa-play-circle"></i> {{ $value->title }}</a>
+                            </h4>
+                            <span class="text-light font-weight-lighter" style="font-size: 16px;"> <b>Duration</b> : {{ $value->duration }} Minutes</span>
                         @endforeach
                     </div>
                 </div>
