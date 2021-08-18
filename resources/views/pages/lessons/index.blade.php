@@ -29,12 +29,12 @@
 @section('content')
     @if($user->status == 'active')
         <div class="row">
-            <div class="col-md-12 display-content" style="background-color: #091010;">
+            <div class="col-md-12 display-content" style="background-color: #171717;">
                 <div class="embed-responsive embed-responsive-21by9">
                     <iframe src="{{ $lesson->link_video }}" class="embed-responsive-item" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="col-md-12 display-content-mobile" style="background-color: #091010;">
+            <div class="col-md-12 display-content-mobile" style="background-color: #171717;">
                 <div class="embed-responsive embed-responsive-21by9">
                     <iframe src="{{ $lesson->link_video }}" class="embed-responsive-item" allowfullscreen></iframe>
                 </div>
@@ -56,9 +56,7 @@
                         </p>
                         <hr class="bg-dark">
                     </div>
-                    <div class="col-md-12 display-content-mobile">
-                        <h4 class="text-light">{{ $lesson->title }}</h4>
-                    </div>
+                    
 
                     <div class="col-md-6 mb-3 mt-4">
                         <h2 class="text-light">LIST LESSONS</h2>
