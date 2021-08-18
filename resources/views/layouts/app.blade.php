@@ -48,16 +48,14 @@
 </head>
 <body class="bg-hitam">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top bg-hitam text-light shadow-md py-3 px-5">
+    <nav class="navbar navbar-expand-lg bg-hitam text-light">
         <a class="navbar-brand" href="{{ url('explore') }}">
             <img src="{{ asset('image/roket-ez-logo-baru-3.png') }}" class="align-items-center" style="width: 100px;" alt="Logo Roketez">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars text-light"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-
-            <!-- Left -->
             <ul class="navbar-nav mr-auto align-items-center">
                 <li class="nav-item">
                     <a class="nav-link active text-light" href="{{ url('explore') }}">Home</a>
@@ -66,8 +64,6 @@
                     <a class="nav-link active text-light" href="{{ url('categories') }}">Categories</a>
                 </li>
             </ul>
-
-            <!-- Right -->
             <ul class="nav navbar-nav navbar-right align-items-center">
                 <li class="nav-item dropdown">
                     <a class="nav-link text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -107,7 +103,6 @@
             </ul>
         </div>
     </nav>
-    
 
     <!-- Content Start Here -->
     
