@@ -17,11 +17,15 @@
     <!-- New Lesson -->
     <div class="col-md-4">
         <a href="{{ url('admin/lessons/create') }}" class="text-decoration-none text-dark">
-            <div class="media">
-                <i class="fab fa-leanpub fa-5x"></i>
-                <div class="ml-3 media-body">
-                <h5 class="mt-0">New Lessons</h5>
-                Added new lesson and pick any course that related with lesson.
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <i class="fab fa-leanpub fa-5x"></i>
+                        <div class="ml-3 media-body">
+                        <h5 class="mt-0">New Lessons</h5>
+                        Added new lesson and pick any course that related with lesson.
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>
@@ -30,11 +34,15 @@
     <!-- List Lesson -->
     <div class="col-md-4">
         <a href="{{ url('admin/lessons/list') }}" class="text-decoration-none text-dark">
-            <div class="media">
-                <i class="fas fa-list fa-5x"></i>
-                <div class="ml-3 media-body">
-                <h5 class="mt-0">List Lessons</h5>
-                Edit, update or view lessson or change lesson to other course.
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <i class="fas fa-list fa-5x"></i>
+                        <div class="ml-3 media-body">
+                        <h5 class="mt-0">List Lessons</h5>
+                        Edit, update or view lessson or change lesson to other course.
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>

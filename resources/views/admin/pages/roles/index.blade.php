@@ -17,11 +17,15 @@
     <!-- New Course -->
     <div class="col-md-4">
         <a href="{{ url('admin/role/create') }}" class="text-decoration-none text-dark">
-            <div class="media">
-                <i class="fas fa-users fa-5x"></i>
-                <div class="ml-3 media-body">
-                <h5 class="mt-0">New Role</h5>
-                Role new administrator or moderator.
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <i class="fas fa-users fa-5x"></i>
+                        <div class="ml-3 media-body">
+                        <h5 class="mt-0">New Role</h5>
+                        Role new administrator or moderator.
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>
@@ -30,11 +34,15 @@
     <!-- List Course -->
     <div class="col-md-4">
         <a href="{{ url('admin/role/list') }}" class="text-decoration-none text-dark">
-            <div class="media">
-                <i class="fas fa-users-cog fa-5x"></i>
-                <div class="ml-3 media-body">
-                <h5 class="mt-0">List Roles</h5>
-                Edit or update roles details.
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <i class="fas fa-users-cog fa-5x"></i>
+                        <div class="ml-3 media-body">
+                        <h5 class="mt-0">List Roles</h5>
+                        Edit or update roles details.
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>

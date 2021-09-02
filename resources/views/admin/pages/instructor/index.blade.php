@@ -17,11 +17,15 @@
     <!-- New Course -->
     <div class="col-md-4">
         <a href="{{ url('admin/instructor/create') }}" class="text-decoration-none text-dark">
-            <div class="media">
-                <i class="fas fa-users fa-5x"></i>
-                <div class="ml-3 media-body">
-                <h5 class="mt-0">New Instructor</h5>
-                Added new instructor manually and select membership.
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <i class="fas fa-users fa-5x"></i>
+                        <div class="ml-3 media-body">
+                        <h5 class="mt-0">New Instructor</h5>
+                        Added new instructor manually and select membership.
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>
@@ -30,11 +34,15 @@
     <!-- List Course -->
     <div class="col-md-4">
         <a href="{{ url('admin/instructor/list') }}" class="text-decoration-none text-dark">
-            <div class="media">
-                <i class="fas fa-users-cog fa-5x"></i>
-                <div class="ml-3 media-body">
-                <h5 class="mt-0">List Instructor</h5>
-                Edit or update instructor details.
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <i class="fas fa-users-cog fa-5x"></i>
+                        <div class="ml-3 media-body">
+                        <h5 class="mt-0">List Instructor</h5>
+                        Edit or update instructor details.
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>
