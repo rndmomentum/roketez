@@ -13,15 +13,19 @@
     <h1 class="h2">Memberships Management</h1>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <!-- New Course -->
     <div class="col-md-4">
         <a href="{{ url('admin/memberships/create') }}" class="text-decoration-none text-dark">
-            <div class="media">
-                <i class="fas fa-users fa-5x"></i>
-                <div class="ml-3 media-body">
-                <h5 class="mt-0">New Memberships</h5>
-                Added new memberships and lock memberships if complete 3 memberships.
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <i class="fas fa-users fa-5x"></i>
+                        <div class="ml-3 media-body">
+                        <h5 class="mt-0">New Memberships</h5>
+                        Added new memberships and lock memberships if complete 3 memberships.
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>
@@ -30,11 +34,15 @@
     <!-- List Course -->
     <div class="col-md-4">
         <a href="{{ url('admin/memberships/list') }}" class="text-decoration-none text-dark">
-            <div class="media">
-                <i class="fas fa-users-cog fa-5x"></i>
-                <div class="ml-3 media-body">
-                <h5 class="mt-0">List Memberships</h5>
-                Edit or update memberships details and see subscriber from any memberships.
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <i class="fas fa-users-cog fa-5x"></i>
+                        <div class="ml-3 media-body">
+                        <h5 class="mt-0">List Memberships</h5>
+                        Edit or update memberships details and see subscriber from any memberships.
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>

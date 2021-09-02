@@ -59,17 +59,15 @@
 
 <!-- Course Image and Price -->
 <div class="row">
-    
-        <div class="col-md-7">
-            <img src="{{ asset('image/courses') }}/{{ $course->image }}" width="100%" alt="{{ $course->title }}">
-        </div>
-        <div class="col-md-5">
-            <h3 class="text-light">{{ $course->title }}</h3>
-            <p class="text-light">{{ $course->description }}</p> <br>
-            <p class="text-light">Created By <b>Team Momentum</b></p>
-            <a href="{{ url('lesson') }}/{{ $get_first_lesson->lesson_id }}" class="btn btn-danger rounded-pill">Enroll Now <i class="fas fa-arrow-right"></i></a>
-        </div>
-
+    <div class="col-md-7">
+        <img src="{{ asset('image/courses') }}/{{ $course->image }}" width="100%" alt="{{ $course->title }}">
+    </div>
+    <div class="col-md-5">
+        <h3 class="text-light">{{ $course->title }}</h3>
+        <p class="text-light">{{ $course->description }}</p> <br>
+        <p class="text-light">Created By <b>Team Momentum</b></p>
+        <a href="{{ url('lesson') }}/{{ $get_first_lesson->lesson_id }}" class="btn btn-danger rounded-pill">Enroll Now <i class="fas fa-arrow-right"></i></a>
+    </div>
 </div>
 
 
