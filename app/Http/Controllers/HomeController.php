@@ -58,10 +58,10 @@ class HomeController extends Controller
                 // All course
                 $courses = Courses::where('locked', 'no')->where('category', '!=', 'sc')->orderBy('id', 'Desc')->get();
 
-                $pluck_courses = Courses::where('locked', 'no')->where('category', '!=', 'sc')->orderBy('id', 'Desc')->pluck('course_id');
-                $lessons = Lessons::whereIn('course_id', $pluck_courses)->get();
+                // $pluck_courses = Courses::where('locked', 'no')->where('category', '!=', 'sc')->orderBy('id', 'Desc')->pluck('course_id');
+                // $lessons = Lessons::whereIn('course_id', $pluck_courses)->get();
 
-                return view('home', compact('courses', 'lessons'));
+                return view('home', compact('courses'));
 
             }
 

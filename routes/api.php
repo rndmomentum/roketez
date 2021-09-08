@@ -20,4 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('report/sales', 'RoketezApi@getReportCollection');
 Route::get('report/transaction', 'RoketezApi@getReportTransaction');
-Route::get('testapi', 'RoketezApi@testapi');
+
+Route::get('course/{id}', 'RoketezApi@getCourse');
+Route::get('lesson/{id}', 'RoketezApi@getLesson');
+Route::get('lessons/{id}', 'RoketezApi@getLessons');
+Route::get('courses', 'RoketezApi@getCourses');

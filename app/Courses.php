@@ -22,4 +22,11 @@ class Courses extends Model
 
     ];
 
+     protected $hidden = [
+        'created_at',
+        'updated_at',
+        'creator_id',
+        'id'
+    ];
+
 }
