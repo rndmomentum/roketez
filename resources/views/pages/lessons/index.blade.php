@@ -31,12 +31,12 @@
         <div class="row">
             <div class="col-md-12 display-content" style="background-color: #171717;">
                 <div class="embed-responsive embed-responsive-21by9">
-                    <iframe src="{{ $lesson->link_video }}" class="embed-responsive-item" allowfullscreen></iframe>
+                    <iframe src="https://player.vimeo.com/video/{{ $lesson->link_video }}" class="embed-responsive-item" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-md-12 display-content-mobile" style="background-color: #171717;">
                 <div class="embed-responsive embed-responsive-21by9">
-                    <iframe src="{{ $lesson->link_video }}" class="embed-responsive-item" allowfullscreen></iframe>
+                    <iframe src="https://player.vimeo.com/video/{{ $lesson->link_video }}" class="embed-responsive-item" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-md-12 px-4">
