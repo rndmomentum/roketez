@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Http;
 use App\PaymentHistory;
 use App\Courses;
 use App\Lessons;
-use Response;
+use App\User;
+use Auth;
 
 class RoketezApi extends Controller
 {
@@ -58,6 +59,45 @@ class RoketezApi extends Controller
         $lessons = Lessons::where('course_id', $id)->get();
 
         return $lessons->toJson();
+
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = ['email' => $request->email, 'password' => $request->password];
+
+
+        if (Auth::guard('app_user')->attempt($credentials)) {
+        // if (Auth::user()->attempt($credentials)) {
+
+            return $credentials;
+        }else{
+
+            $failed = ['error' => 'failed'];
+            return $failed;
+
+        }
+
+        // }else{
+
+        //     return 'Tak Kacakz';
+
+        // }
+
+        // $loginData = $request->validate([
+        //     'email' => 'email|required',
+        //     'password' => 'required',
+        // ]);
+
+        //return $loginData;
+
+        // if (!Auth::guard('admin')->attempt($loginData)) {
+        //     return response(['message' => 'Invalid Credentials']);
+        // }
+
+        // $accessToken = Auth::guard('admin')->user()->createToken('authToken')->accessToken;
+        // return response(['admin' => Auth::guard('admin')->user()]);
+
 
     }
 }

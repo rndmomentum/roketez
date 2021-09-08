@@ -25,3 +25,5 @@ Route::get('course/{id}', 'RoketezApi@getCourse');
 Route::get('lesson/{id}', 'RoketezApi@getLesson');
 Route::get('lessons/{id}', 'RoketezApi@getLessons');
 Route::get('courses', 'RoketezApi@getCourses');
+
+Route::post('login', 'RoketezApi@login');
