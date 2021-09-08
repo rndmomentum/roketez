@@ -51,7 +51,7 @@
                                 <td>{{ $course->title }}</td>
                                 <td>{{ $lesson->created_at }}</td>
                                 <td>
-                                    <a href="{{ url('admin/lessons/edit') }}/{{ $lesson->lesson_id  }}" class="text-decoration-none btn btn-sm btn-light"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{ url('admin/lessons/edit') }}/{{ $lesson->lesson_id  }}" target="_blank" class="text-decoration-none btn btn-sm btn-light"><i class="fas fa-pencil-alt"></i></a>
                                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{ $lesson->lesson_id }}"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
