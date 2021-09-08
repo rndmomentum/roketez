@@ -33,9 +33,7 @@
             <thead class="thead-dark">
               <tr>
                 <th>#</th>
-                <th>Lesson ID</th>
                 <th>Title</th>
-                <th>Course</th>
                 <th>Created At</th>
                 <th><span data-feather="settings"></span></th>
               </tr>
@@ -46,9 +44,7 @@
                         @if($course->course_id == $lesson->course_id)
                             <tr>  
                                 <td>{{ $count++ }}</td>
-                                <td>{{ $lesson->course_id }}</td>
                                 <td>{{ $lesson->title }}</td>
-                                <td>{{ $course->title }}</td>
                                 <td>{{ $lesson->created_at }}</td>
                                 <td>
                                     <a href="{{ url('admin/lessons/edit') }}/{{ $lesson->lesson_id  }}" target="_blank" class="text-decoration-none btn btn-sm btn-light"><i class="fas fa-pencil-alt"></i></a>
