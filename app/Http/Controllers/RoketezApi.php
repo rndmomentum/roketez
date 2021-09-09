@@ -55,7 +55,7 @@ class RoketezApi extends Controller
      */
     public function marketingCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category', 'marketing')->random()->get();
+        $courses = Courses::where('locked', 'no')->where('category', 'marketing')->inRandomOrder()->get();
 
 
         return $courses->toJson();
@@ -69,7 +69,7 @@ class RoketezApi extends Controller
      */
     public function salesCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category','sales')->random()->get();
+        $courses = Courses::where('locked', 'no')->where('category','sales')->inRandomOrder()->get();
 
         return $courses->toJson();
     }
@@ -81,7 +81,7 @@ class RoketezApi extends Controller
      */
     public function brandingCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category','branding')->random()->get();
+        $courses = Courses::where('locked', 'no')->where('category','branding')->inRandomOrder()->get();
 
         return $courses->toJson();
     }
@@ -93,7 +93,7 @@ class RoketezApi extends Controller
      */
     public function motivationCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category','motivation')->random()->get();
+        $courses = Courses::where('locked', 'no')->where('category','motivation')->inRandomOrder()->get();
 
         return $courses->toJson();
     }
@@ -105,7 +105,7 @@ class RoketezApi extends Controller
      */
     public function copywritingCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category','copywriting')->random()->get();
+        $courses = Courses::where('locked', 'no')->where('category','copywriting')->inRandomOrder()->get();
 
         return $courses->toJson();
     }
