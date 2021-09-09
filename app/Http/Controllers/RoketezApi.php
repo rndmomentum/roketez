@@ -33,12 +33,91 @@ class RoketezApi extends Controller
         return PaymentHistory::whereRaw("(created_at >= ? AND created_at <= ?)", [$fromMonth." 00:00:00", $toMonth." 23:59:59"])->sum('price');
     }
 
-    public function getCourses()
+    public function latestCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category', '!=', 'sc')->orderBy('id', 'Desc')->limit(4)->get();
+        $courses = Courses::where('locked', 'no')->where('category', '!=', 'sc')->orderBy('id', 'Desc')->limit(5)->get();
 
         return $courses->toJson();
     }
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Courses API
+    |--------------------------------------------------------------------------
+    |
+    */
+
+
+    /**
+     * Marketing
+     * 
+     * 
+     */
+    public function marketingCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category', 'marketing')->orderBy('id', 'Desc')->get();
+
+
+        return $courses->toJson();
+        // dd($courses);
+    }
+
+    /**
+     * Sales
+     * 
+     * 
+     */
+    public function salesCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category','sales')->orderBy('id', 'Desc')->get();
+
+        return $courses->toJson();
+    }
+
+    /**
+     * Sales
+     * 
+     * 
+     */
+    public function brandingCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category','branding')->orderBy('id', 'Desc')->get();
+
+        return $courses->toJson();
+    }
+
+    /**
+     * Motivation
+     * 
+     * 
+     */
+    public function motivationCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category','motivation')->orderBy('id', 'Desc')->get();
+
+        return $courses->toJson();
+    }
+
+    /**
+     * Copywriting
+     *
+     *
+     */
+    public function copywritingCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category','copywriting')->orderBy('id', 'Desc')->get();
+
+        return $courses->toJson();
+    }
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Others API
+    |--------------------------------------------------------------------------
+    |
+    */
 
     public function getCourse($id)
     {
@@ -68,36 +147,15 @@ class RoketezApi extends Controller
 
 
         if (Auth::guard('app_user')->attempt($credentials)) {
-        // if (Auth::user()->attempt($credentials)) {
-
+            
             return $credentials;
+            
         }else{
 
             $failed = ['error' => 'failed'];
             return $failed;
 
         }
-
-        // }else{
-
-        //     return 'Tak Kacakz';
-
-        // }
-
-        // $loginData = $request->validate([
-        //     'email' => 'email|required',
-        //     'password' => 'required',
-        // ]);
-
-        //return $loginData;
-
-        // if (!Auth::guard('admin')->attempt($loginData)) {
-        //     return response(['message' => 'Invalid Credentials']);
-        // }
-
-        // $accessToken = Auth::guard('admin')->user()->createToken('authToken')->accessToken;
-        // return response(['admin' => Auth::guard('admin')->user()]);
-
 
     }
 }
