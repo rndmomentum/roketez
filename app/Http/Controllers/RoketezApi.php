@@ -149,7 +149,8 @@ class RoketezApi extends Controller
 
         if (Auth::guard('app_user')->attempt($credentials)) {
             
-            return $credentials;
+            $users = User::where('email', $credentials['email'])->first();
+            return $users;
             
         }else{
 
