@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Hash;
 use App\PaymentHistory;
 use App\Courses;
 use App\Lessons;
@@ -156,6 +157,26 @@ class RoketezApi extends Controller
             return $failed;
 
         }
+
+    }
+
+    public function register(Request $request)
+    {
+        $get_user_id = User::orderBy('id', 'Desc')->first();
+        $total = $get_user_id->id + 1;
+        $user_id = 'U00' . $total;
+
+        $create = User::create([
+            'user_id' => $user_id,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'phone_number' => $request->phonenumber,
+            'status' => 'pending',
+            'password' => Hash::make($request->password),
+        ]);
+
+        return $create;
 
     }
 }
