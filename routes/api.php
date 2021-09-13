@@ -28,6 +28,7 @@ Route::get('courses', 'RoketezApi@latestCourses');
 
 // Login & Register
 Route::post('login', 'RoketezApi@login');
+Route::post('register', 'RoketezApi@register');
 
 // Courses Category
 Route::get('courses/c/marketing', 'RoketezApi@marketingCourses');
