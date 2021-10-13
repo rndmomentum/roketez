@@ -180,4 +180,11 @@ class RoketezApi extends Controller
         return $create;
 
     }
+
+    public function get_user($id)
+    {
+        $users = User::where('user_id', $id)->first();
+
+        return $users;
+    }
 }
