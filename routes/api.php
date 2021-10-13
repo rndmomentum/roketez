@@ -37,4 +37,7 @@ Route::get('courses/c/branding', 'RoketezApi@brandingCourses');
 Route::get('courses/c/motivation', 'RoketezApi@motivationCourses');
 Route::get('courses/c/copywriting', 'RoketezApi@copywritingCourses');
 
+// User
+Route::get('user/{id}', 'RoketezApi@get_user');
+
 
