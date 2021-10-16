@@ -28,7 +28,7 @@ Route::get('courses', 'RoketezApi@latestCourses');
 
 // Login & Register
 Route::post('login', 'RoketezApi@login');
-Route::post('register', 'RoketezApi@register');
+// Route::post('register', 'RoketezApi@register');
 
 // Courses Category
 Route::get('courses/c/marketing', 'RoketezApi@marketingCourses');
@@ -36,6 +36,14 @@ Route::get('courses/c/sales', 'RoketezApi@salesCourses');
 Route::get('courses/c/branding', 'RoketezApi@brandingCourses');
 Route::get('courses/c/motivation', 'RoketezApi@motivationCourses');
 Route::get('courses/c/copywriting', 'RoketezApi@copywritingCourses');
+
+// Courses in Categories
+Route::get('courses/cs/marketing', 'RoketezApi@categorymarketingCourses');
+Route::get('courses/cs/sales', 'RoketezApi@categorysalesCourses');
+Route::get('courses/cs/branding', 'RoketezApi@categorybrandingCourses');
+Route::get('courses/cs/motivation', 'RoketezApi@categorymotivationCourses');
+Route::get('courses/cs/copywriting', 'RoketezApi@categorycopywritingCourses');
+
 
 // User
 Route::get('user/{id}', 'RoketezApi@get_user');
