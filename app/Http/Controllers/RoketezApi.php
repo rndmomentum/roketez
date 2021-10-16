@@ -56,7 +56,7 @@ class RoketezApi extends Controller
      */
     public function marketingCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category', 'marketing')->inRandomOrder()->get();
+        $courses = Courses::where('locked', 'no')->where('category', 'marketing')->inRandomOrder()->limit(10)->get();
 
 
         return $courses->toJson();
@@ -70,7 +70,7 @@ class RoketezApi extends Controller
      */
     public function salesCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category','sales')->inRandomOrder()->get();
+        $courses = Courses::where('locked', 'no')->where('category','sales')->inRandomOrder()->limit(10)->get();
 
         return $courses->toJson();
     }
@@ -82,7 +82,7 @@ class RoketezApi extends Controller
      */
     public function brandingCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category','branding')->inRandomOrder()->get();
+        $courses = Courses::where('locked', 'no')->where('category','branding')->inRandomOrder()->limit(10)->get();
 
         return $courses->toJson();
     }
@@ -94,7 +94,7 @@ class RoketezApi extends Controller
      */
     public function motivationCourses()
     {
-        $courses = Courses::where('locked', 'no')->where('category','motivation')->inRandomOrder()->get();
+        $courses = Courses::where('locked', 'no')->where('category','motivation')->inRandomOrder()->limit(10)->get();
 
         return $courses->toJson();
     }
@@ -105,6 +105,76 @@ class RoketezApi extends Controller
      *
      */
     public function copywritingCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category','copywriting')->inRandomOrder()->limit(10)->get();
+
+        return $courses->toJson();
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Courses in Categories
+    |--------------------------------------------------------------------------
+    |
+    */
+
+
+    /**
+     * Marketing
+     * 
+     * 
+     */
+    public function categorymarketingCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category', 'marketing')->inRandomOrder()->get();
+
+
+        return $courses->toJson();
+        // dd($courses);
+    }
+
+    /**
+     * Sales
+     * 
+     * 
+     */
+    public function categorysalesCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category','sales')->inRandomOrder()->get();
+
+        return $courses->toJson();
+    }
+
+    /**
+     * Sales
+     * 
+     * 
+     */
+    public function categorybrandingCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category','branding')->inRandomOrder()->get();
+
+        return $courses->toJson();
+    }
+
+    /**
+     * Motivation
+     * 
+     * 
+     */
+    public function categorymotivationCourses()
+    {
+        $courses = Courses::where('locked', 'no')->where('category','motivation')->inRandomOrder()->get();
+
+        return $courses->toJson();
+    }
+
+    /**
+     * Copywriting
+     *
+     *
+     */
+    public function categorycopywritingCourses()
     {
         $courses = Courses::where('locked', 'no')->where('category','copywriting')->inRandomOrder()->get();
 
@@ -161,25 +231,25 @@ class RoketezApi extends Controller
 
     }
 
-    public function register(Request $request)
-    {
-        $get_user_id = User::orderBy('id', 'Desc')->first();
-        $total = $get_user_id->id + 1;
-        $user_id = 'U00' . $total;
+    // public function register(Request $request)
+    // {
+    //     $get_user_id = User::orderBy('id', 'Desc')->first();
+    //     $total = $get_user_id->id + 1;
+    //     $user_id = 'U00' . $total;
 
-        $create = User::create([
-            'user_id' => $user_id,
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'phone_number' => $request->phonenumber,
-            'status' => 'pending',
-            'password' => Hash::make($request->password),
-        ]);
+    //     $create = User::create([
+    //         'user_id' => $user_id,
+    //         'firstname' => $request->firstname,
+    //         'lastname' => $request->lastname,
+    //         'email' => $request->email,
+    //         'phone_number' => $request->phonenumber,
+    //         'status' => 'pending',
+    //         'password' => Hash::make($request->password),
+    //     ]);
 
-        return $create;
+    //     return $create;
 
-    }
+    // }
 
     public function get_user($id)
     {
