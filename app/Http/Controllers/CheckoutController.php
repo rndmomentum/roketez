@@ -88,7 +88,7 @@ class CheckoutController extends Controller
                         ],
 
                     ],
-                    'trial_period_days' => 3,
+                    'trial_period_days' => $membership->trial_day,
                     // 'trial_from_plan' => true,
 
                 ]);
@@ -111,7 +111,7 @@ class CheckoutController extends Controller
                 $get_payment_history = PaymentHistory::orderBy('id','Desc')->first();
                 $total = $get_payment_history->id + 1;
                 $order_id = "100" . $total;
-
+                
                 // Payment History
                 PaymentHistory::create(array(
 
@@ -120,7 +120,8 @@ class CheckoutController extends Controller
                     'user_id' => $user->user_id,
                     'membership_id' => $membership->membership_id,
                     'invoice_id' => $subscription->latest_invoice,
-                    'price' => $membership->sales_price,
+                    // 'price' => $membership->sales_price,
+                    'price' => 0,
                     'status' => 'pending'
 
                 ));
