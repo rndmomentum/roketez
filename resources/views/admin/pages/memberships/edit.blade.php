@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-12 mt-3">
             <div class="card">
                 <div class="card-header bg-dark text-light">
                     Membership Terms
@@ -90,6 +90,12 @@
                                 @if($membership->status == 'deactive')
                                     <small class="text-danger">*Important to deactive others membership before select active this membership</small>
                                 @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Trial Day</label>
+                                <input type="text" value="{{ $membership->trial_day }}" name="trial_day" placeholder="Enter Trial Day" class="form-control" required>
                             </div>
                         </div>
                     </div>
