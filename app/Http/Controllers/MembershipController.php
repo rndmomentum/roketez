@@ -53,6 +53,7 @@ class MembershipController extends Controller
             'original_price' => $request->original_price,
             'sales_price' => $request->sales_price,
             'status' => 'deactive',
+            'trial_day' => $request->trial_day,
 
         ));
 
@@ -103,6 +104,7 @@ class MembershipController extends Controller
         $membership->original_price = $request->original_price;
         $membership->sales_price = $request->sales_price;
         $membership->status = $request->status;
+        $membership->trial_day = $request->trial_day;
 
         $membership->save();
 
