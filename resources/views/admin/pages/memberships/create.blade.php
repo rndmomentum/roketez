@@ -71,6 +71,24 @@
             </div>
         </div>
 
+        <div class="col-md-12 mt-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    Membership Terms
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Trial Day</label>
+                                <input type="email" value="0" name="trial_day" placeholder="Enter Trial Day" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-md-6 mt-3">
             <button type="submit" class="btn btn-dark">Create Membership <span data-feather="arrow-right"></span></button>
         </div>

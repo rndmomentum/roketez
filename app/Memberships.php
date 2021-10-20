@@ -16,7 +16,8 @@ class Memberships extends Model
         'description',
         'original_price',
         'sales_price',
-        'status'
+        'status',
+        'trial_day'
 
     ];
 
