@@ -40,19 +40,19 @@
                 <p class="font-weight-light" style="margin-top: 70px;">Anda dah bersedia nak roketkan sales? Sila isikan emel untuk mendaftar.</p>
             </div>
         </div>
-        <form action="{{ url('register') }}" method="POST">
-            @csrf
+        {{-- <form action="{{ url('register') }}" method="GET">
+            @csrf --}}
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="input-group input-group-lg mb-3">
                         <input type="email" class="form-control" placeholder="Email Address" required>
                         <div class="input-group-append">
-                            <button type="submit" class="btn btn-danger" type="button">Get Started</button>
+                            <a href="{{ url('register') }}" class="btn btn-danger">Get Started</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
     </div>
 </div>
 
