@@ -40,7 +40,7 @@
                 <p class="font-weight-light" style="margin-top: 70px;">Anda dah bersedia nak roketkan sales? Sila isikan emel untuk mendaftar.</p>
             </div>
         </div>
-        <form action="{{ url('user-register') }}" method="POST">
+        <form action="{{ url('register') }}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-md-6">
