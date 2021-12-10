@@ -28,6 +28,6 @@ class CancelSubscription extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.cancelsubscription')->subject('Canceled Membership From Roketez')->from('admin@roketez.com', 'Support Roketez');
+        return $this->view('emails.cancelsubscription')->subject('Your Subscription Has Been Canceled')->from('no-reply@roketez.com', 'no-reply');
     }
 }
