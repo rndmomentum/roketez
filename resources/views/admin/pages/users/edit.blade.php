@@ -54,7 +54,7 @@
                         <label>Phone Number</label>
                         <input type="text" class="form-control" name="phonenumber" value="{{ $user->phone_number }}" placeholder="Enter Phone Number" required>
                     </div>
-                    <button type="submit" class="btn btn-dark float-right mt-3">Update User <span data-feather="arrow-right"></span></button>
+                    <button type="submit" class="btn btn-dark float-right mt-3">Update User <i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
         </form>
@@ -65,9 +65,9 @@
               Subscription Details
             </div>
             <div class="card-body">
-                <p><b>Status : </b> @if($subscription_check->isEmpty()) <span class="text-muted">Missing</span>  @else {{ $subscription_stripe->status }} <span class="text-danger">*Data From Stripe</span> @endif</p>
-                <p><b>ID : </b> @if($subscription_check->isEmpty()) <span class="text-muted">Missing</span> @else {{ $subscription->subscription_id }} <span class="text-danger">*Data From Stripe</span> @endif</p>
-                <p><b>Expired At : </b> @if($subscription_check->isEmpty()) <span class="text-muted">Missing</span>  @else {{ date('d-m-Y', $subscription_stripe->current_period_end) }} <span class="text-danger">*Data From Stripe</span> @endif</p>
+                <p><b>Status : </b> @if($subscription_check->isEmpty()) <span class="text-muted">-</span>  @else {{ $subscription_stripe->status }} <span class="text-danger">*Data From Stripe</span> @endif</p>
+                <p><b>ID : </b> @if($subscription_check->isEmpty()) <span class="text-muted">-</span> @else {{ $subscription->subscription_id }} <span class="text-danger">*Data From Stripe</span> @endif</p>
+                <p><b>Expired At : </b> @if($subscription_check->isEmpty()) <span class="text-muted">-</span>  @else {{ date('d-m-Y', $subscription_stripe->current_period_end) }} <span class="text-danger">*Data From Stripe</span> @endif</p>
                 @if($subscription_check->isEmpty()) @else <a href="https://dashboard.stripe.com/subscriptions/{{ $subscription->subscription_id }}" target="_blank" class="btn btn-primary btn-block">Go To Stripe <i class="fas fa-arrow-right"></i></a> @endif
                 @if($subscription_check->isEmpty())  
                 
@@ -84,6 +84,9 @@
     </div>
 </div>
 
+@if ($payment_history->isEmpty())
+
+@else
 <div class="row mt-4">
     <div class="col-md-12">
         <h4>Payment History</h4>
@@ -244,6 +247,7 @@
         </table>
     </div>
 </div>
+@endif
 
 <!-- Cancel Subscription -->
 <div class="modal fade" id="cancel{{ $user->user_id }}" tabindex="-1" aria-hidden="true">
