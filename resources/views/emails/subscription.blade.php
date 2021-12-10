@@ -314,9 +314,9 @@
             	<tr>
 			          <td style="text-align: center;">
 			          	<div class="text-author">
-				          	<h3 class="name">Danial Adzhar</h3>
+				          	<h3 class="name">{{ $name }}</h3>
 				          	<span class="position">Member of Netflix</span>
-				           	<p><a href="https://www.roketez.com" class="btn btn-primary">Watch Now</a></p>
+				           	<p><a href="https://www.roketez.com/explore" class="btn btn-primary">Watch Now</a></p>
 			           	</div>
 			          </td>
 			        </tr>

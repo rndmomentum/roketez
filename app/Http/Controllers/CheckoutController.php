@@ -35,6 +35,7 @@ class CheckoutController extends Controller
     {
 
         $user = Auth::user();
+        $name = $user->firstname . " " . $user->lastname;
 
         // Get Membership Details
         $membership = Memberships::where('membership_id', $id)->first();
@@ -128,7 +129,7 @@ class CheckoutController extends Controller
 
                 $update_user->save();
 
-                // \Mail::to($user->email)->send(new \App\Mail\Subscription());        
+                \Mail::to($user->email)->send(new \App\Mail\Subscription($name));        
 
             }
 

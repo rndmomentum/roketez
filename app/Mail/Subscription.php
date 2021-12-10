@@ -10,15 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class Subscription extends Mailable
 {
     use Queueable, SerializesModels;
+    public $name;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name)
     {
-        //
+        $this->name = $name;
     }
 
     /**
@@ -28,6 +29,8 @@ class Subscription extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.subscription')->subject('Congratulations! You Now Member Of Roketez')->from('admin@roketez.com', 'Support Roketez');
+        $name = $this->name;
+
+        return $this->view('emails.subscription', compact('name'))->subject('Your Subscription Succeeded!')->from('no-reply@roketez.com', 'no-reply');
     }
 }
