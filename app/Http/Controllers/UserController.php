@@ -11,6 +11,7 @@ use App\StripeApi;
 
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Hash;
 
 use Stripe;
 
@@ -30,6 +31,36 @@ class UserController extends Controller
 
         return view('admin.pages.users.list', compact('users','count'));
 
+    }
+
+    public function create()
+    {
+        return view('admin.pages.users.create');
+    }
+
+    public function store(Request $request)
+    {
+        // $get_user_id = User::orderBy('id', 'Desc')->first();
+        // $total = $get_user_id->id + 1;
+        // $user_id = 'U00' . $total;
+
+        // User::create([
+        //     'user_id' => $user_id,
+        //     'firstname' => $request->firstname,
+        //     'lastname' => $request->lastname,
+        //     'email' => $request->email,
+        //     'phone_number' => $request->phonenumber,
+        //     'status' => 'pending',
+        //     'password' => Hash::make('password'),
+        // ]);
+
+        $name = $request->firstname . " " . $request->lastname;
+        $email = $request->email;
+        $password = 'password';
+
+        \Mail::to($request->email)->send(new \App\Mail\NewRegister($name, $email, $password));
+
+        return redirect()->back()->with('success', 'User Registered!');
     }
 
     /**
