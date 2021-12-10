@@ -314,9 +314,13 @@
             	<tr>
 			          <td style="text-align: center;">
 			          	<div class="text-author">
-				          	<h3 class="name">{{ $name }}</h3>
-				          	<span class="position">Member of Netflix</span>
-				           	<p><a href="https://www.roketez.com/explore" class="btn btn-primary">Watch Now</a></p>
+				          	<h3 class="name">Name : {{ $name }}</h3>
+                            <h3 class="name">Email : {{ $email }}</h3>
+                            <h3 class="name">Password : {{ $password }}</h3>
+                            <br>
+				          	<span class="position">*Sign in using the account above</span>
+                            <br><br>
+				           	<p><a href="https://www.roketez.com/signup/pricing" class="btn btn-primary">Make a Payment</a></p>
 			           	</div>
 			          </td>
 			        </tr>

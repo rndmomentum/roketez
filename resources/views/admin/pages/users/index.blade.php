@@ -16,14 +16,14 @@
 <div class="row mt-4">
     <!-- New User -->
     <div class="col-md-4">
-        <a href="{{ url('admin/users/create') }}" class="text-decoration-none text-dark">
+        <a href="{{ url('admin/user/create') }}" class="text-decoration-none text-dark">
             <div class="card">
                 <div class="card-body">
                     <div class="media">
                         <i class="fas fa-users fa-5x"></i>
                         <div class="ml-3 media-body">
-                        <h5 class="mt-0">New Users</h5>
-                        Added new users manually and select membership.
+                        <h5 class="mt-0">New User</h5>
+                        Added new user manually and select membership.
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
 
     <!-- List Course -->
     <div class="col-md-4">
-        <a href="{{ url('admin/users/list') }}" class="text-decoration-none text-dark">
+        <a href="{{ url('admin/user/list') }}" class="text-decoration-none text-dark">
             <div class="card">
                 <div class="card-body">
                     <div class="media">

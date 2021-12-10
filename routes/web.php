@@ -129,8 +129,12 @@ Route::get('admin/role/list', 'AdminController@index');
 |
 */
 
+// Create
+Route::get('admin/user/create', 'UserController@create');
+Route::post('admin/user/store', 'UserController@store');
+
 // Index
-Route::get('admin/users/list', 'UserController@index');
+Route::get('admin/user/list', 'UserController@index');
 
 // Update
 Route::get('admin/user/edit/{id}', 'UserController@edit');

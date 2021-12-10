@@ -13,7 +13,7 @@
 
     <!-- Script -->
     <script src="https://kit.fontawesome.com/5c12e9bac7.js" crossorigin="anonymous"></script>
-    @yield('css')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 
     <!-- Custom CSS -->
     <style>
@@ -33,6 +33,7 @@
       }
     </style>
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    @yield('css')
   </head>
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -148,7 +149,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     @yield('js')
     </body>
 </html>

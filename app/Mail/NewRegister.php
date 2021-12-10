@@ -7,19 +7,24 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Subscription extends Mailable
+class NewRegister extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $name;
+    public $email;
+    public $password;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($name, $email, $password)
     {
         $this->name = $name;
+        $this->email = $email;
+        $this->password = $password;
     }
 
     /**
@@ -30,7 +35,9 @@ class Subscription extends Mailable
     public function build()
     {
         $name = $this->name;
+        $email = $this->email;
+        $password = $this->password;
 
-        return $this->view('emails.subscription', compact('name'))->subject('Your Subscription Succeeded!')->from('no-reply@roketez.com', 'no-reply');
+        return $this->view('emails.newregister', compact('name', 'email', 'password'))->subject('Your Registration Has Been Successful!')->from('no-reply@roketez.com', 'no-reply');
     }
 }
