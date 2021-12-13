@@ -40,19 +40,19 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        // $get_user_id = User::orderBy('id', 'Desc')->first();
-        // $total = $get_user_id->id + 1;
-        // $user_id = 'U00' . $total;
+        $get_user_id = User::orderBy('id', 'Desc')->first();
+        $total = $get_user_id->id + 1;
+        $user_id = 'U00' . $total;
 
-        // User::create([
-        //     'user_id' => $user_id,
-        //     'firstname' => $request->firstname,
-        //     'lastname' => $request->lastname,
-        //     'email' => $request->email,
-        //     'phone_number' => $request->phonenumber,
-        //     'status' => 'pending',
-        //     'password' => Hash::make('password'),
-        // ]);
+        User::create([
+            'user_id' => $user_id,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'phone_number' => $request->phonenumber,
+            'status' => 'pending',
+            'password' => Hash::make('password'),
+        ]);
 
         $name = $request->firstname . " " . $request->lastname;
         $email = $request->email;
