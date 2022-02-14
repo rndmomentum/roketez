@@ -66,7 +66,7 @@
     </div>
 
     {{-- Marketing --}}
-    <div class="row mt-5"> 
+    <div class="row mt-3"> 
         <div class="col-md-12 mb-2">
             <h5 class="text-light">Marketing</h5>
         </div>
@@ -84,7 +84,7 @@
     </div>
 
     {{-- Sales --}}
-    <div class="row mt-5"> 
+    <div class="row mt-3"> 
         <div class="col-md-12 mb-2">
             <h5 class="text-light">Sales</h5>
         </div>
@@ -102,7 +102,7 @@
     </div>
 
     {{-- Motivation --}}
-    <div class="row mt-5"> 
+    <div class="row mt-3"> 
         <div class="col-md-12 mb-2">
             <h5 class="text-light">Motivation</h5>
         </div>
@@ -120,7 +120,7 @@
     </div>
 
     {{-- Copywriting --}}
-    <div class="row mt-5"> 
+    <div class="row mt-3"> 
         <div class="col-md-12 mb-2">
             <h5 class="text-light">Copywriting</h5>
         </div>
@@ -138,7 +138,7 @@
     </div>
 
     {{-- Branding --}}
-    <div class="row mt-5"> 
+    <div class="row mt-3"> 
         <div class="col-md-12 mb-2">
             <h5 class="text-light">Branding</h5>
         </div>
