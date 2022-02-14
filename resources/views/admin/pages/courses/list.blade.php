@@ -58,7 +58,6 @@
             <thead class="thead-dark">
               <tr>
                 <th>#</th>
-                <th>Course ID</th>
                 <th>Title</th>
                 <th>Level</th>
                 <th>Locked</th>
@@ -70,7 +69,6 @@
                 @foreach($courses as $course)
                 <tr>  
                     <td>{{ $count++ }}</td>
-                    <td>{{ $course->course_id }}</td>
                     <td>{{ $course->title }}</td>
                     <td>
                         @if($course->level == 'basic')

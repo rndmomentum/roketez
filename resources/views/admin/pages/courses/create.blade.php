@@ -59,6 +59,9 @@
                                     <option value="copywriting">Copywriting</option>
                                     <option value="branding">Branding</option>
                                     <option value="web">Business Website</option>
+                                    <option value="tiktok">Tiktok</option>
+                                    <option value="youtube">Youtube</option>
+                                    <option value="instagram">Instagram</option>
                                 </select>
                             </div>
                         </div>
