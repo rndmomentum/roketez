@@ -55,13 +55,34 @@ class HomeController extends Controller
 
             } else {
 
+                // Latest Courses
+                $latest_courses = Courses::where('locked', 'no')->where('category', '!=', 'sc')->orderBy('id', 'Desc')->limit(4)->get();
+
+                // Marketing
+                $marketing = Courses::where('locked', 'no')->where('category', 'marketing')->inRandomOrder()->limit(4)->get();
+
+                // Sales
+                $sales = Courses::where('locked', 'no')->where('category', 'sales')->inRandomOrder()->limit(4)->get();
+
+                // Motivation
+                $motivation = Courses::where('locked', 'no')->where('category', 'motivation')->inRandomOrder()->limit(4)->get();
+
+                // Copywriting
+                $copywriting = Courses::where('locked', 'no')->where('category', 'copywriting')->inRandomOrder()->limit(4)->get();
+
+                // Branding
+                $branding = Courses::where('locked', 'no')->where('category', 'branding')->inRandomOrder()->limit(4)->get();
+
+
+        
+
                 // All course
                 $courses = Courses::where('locked', 'no')->where('category', '!=', 'sc')->orderBy('id', 'Desc')->get();
 
                 // $pluck_courses = Courses::where('locked', 'no')->where('category', '!=', 'sc')->orderBy('id', 'Desc')->pluck('course_id');
                 // $lessons = Lessons::whereIn('course_id', $pluck_courses)->get();
 
-                return view('home', compact('courses'));
+                return view('home', compact('courses', 'latest_courses', 'marketing', 'sales', 'motivation', 'copywriting', 'branding'));
 
             }
 

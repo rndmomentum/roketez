@@ -46,8 +46,117 @@
         The course has not yet been uploaded and will be updated shortly, we will expedite the process as soon as possible.
     </div>
 @else    
-    <!-- Other Courses -->
+    
+    {{-- Latest Courses --}}
     <div class="row mt-5"> 
+        <div class="col-md-12 mb-2">
+            <h5 class="text-light">Latest Courses</h5>
+        </div>
+        @foreach($latest_courses as $course)
+            <div class="col-md-3 mb-4">
+                <a href="{{ url('course') }}/{{ $course->course_id }}" class="text-decoration-none text-dark">
+                    <div class="card shadow rounded border-0">
+                        <img src="{{ asset('image/courses') }}/{{ $course->image }}" class="card-img-top" alt="{{ $course->title }}">
+                        <div class="card-body bg-card-black">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+
+    {{-- Marketing --}}
+    <div class="row mt-5"> 
+        <div class="col-md-12 mb-2">
+            <h5 class="text-light">Marketing</h5>
+        </div>
+        @foreach($marketing as $course)
+            <div class="col-md-3 mb-4">
+                <a href="{{ url('course') }}/{{ $course->course_id }}" class="text-decoration-none text-dark">
+                    <div class="card shadow rounded border-0">
+                        <img src="{{ asset('image/courses') }}/{{ $course->image }}" class="card-img-top" alt="{{ $course->title }}">
+                        <div class="card-body bg-card-black">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+
+    {{-- Sales --}}
+    <div class="row mt-5"> 
+        <div class="col-md-12 mb-2">
+            <h5 class="text-light">Sales</h5>
+        </div>
+        @foreach($sales as $course)
+            <div class="col-md-3 mb-4">
+                <a href="{{ url('course') }}/{{ $course->course_id }}" class="text-decoration-none text-dark">
+                    <div class="card shadow rounded border-0">
+                        <img src="{{ asset('image/courses') }}/{{ $course->image }}" class="card-img-top" alt="{{ $course->title }}">
+                        <div class="card-body bg-card-black">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+
+    {{-- Motivation --}}
+    <div class="row mt-5"> 
+        <div class="col-md-12 mb-2">
+            <h5 class="text-light">Motivation</h5>
+        </div>
+        @foreach($marketing as $course)
+            <div class="col-md-3 mb-4">
+                <a href="{{ url('course') }}/{{ $course->course_id }}" class="text-decoration-none text-dark">
+                    <div class="card shadow rounded border-0">
+                        <img src="{{ asset('image/courses') }}/{{ $course->image }}" class="card-img-top" alt="{{ $course->title }}">
+                        <div class="card-body bg-card-black">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+
+    {{-- Copywriting --}}
+    <div class="row mt-5"> 
+        <div class="col-md-12 mb-2">
+            <h5 class="text-light">Copywriting</h5>
+        </div>
+        @foreach($copywriting as $course)
+            <div class="col-md-3 mb-4">
+                <a href="{{ url('course') }}/{{ $course->course_id }}" class="text-decoration-none text-dark">
+                    <div class="card shadow rounded border-0">
+                        <img src="{{ asset('image/courses') }}/{{ $course->image }}" class="card-img-top" alt="{{ $course->title }}">
+                        <div class="card-body bg-card-black">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+
+    {{-- Branding --}}
+    <div class="row mt-5"> 
+        <div class="col-md-12 mb-2">
+            <h5 class="text-light">Branding</h5>
+        </div>
+        @foreach($branding as $course)
+            <div class="col-md-3 mb-4">
+                <a href="{{ url('course') }}/{{ $course->course_id }}" class="text-decoration-none text-dark">
+                    <div class="card shadow rounded border-0">
+                        <img src="{{ asset('image/courses') }}/{{ $course->image }}" class="card-img-top" alt="{{ $course->title }}">
+                        <div class="card-body bg-card-black">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+
+
+    {{-- <div class="row mt-5"> 
         <div class="col-md-12 mb-2">
             <h5 class="text-light">All Courses</h5>
         </div>
@@ -57,22 +166,13 @@
                     <div class="card shadow rounded border-0">
                         <img src="{{ asset('image/courses') }}/{{ $course->image }}" class="card-img-top" alt="{{ $course->title }}">
                         <div class="card-body bg-card-black">
-                            {{-- <h4 class="text-light d-inline-block font-weight-bold" style="max-width: 350px;">{{ $course->title }}</h4>
-                            <p class="card-text font-weight-light" style="color: #CDCCCC">Team Momentum</p>
                             
-                            @if($course->level == 'advanced')
-                                <span class="badge badge-danger">Advanced</span>
-                            @endif
-                            @if($course->level == 'basic')
-                                <span class="badge badge-primary">Basic</span>
-                            @endif --}}
-                            {{-- <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star"></i> <span>(38, 400)</span> --}}
                         </div>
                     </div>
                 </a>
             </div>
         @endforeach
-    </div>
+    </div> --}}
 @endif
 
 @endsection
