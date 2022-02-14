@@ -481,4 +481,10 @@ class HomeController extends Controller
 
         return redirect('explore');
     }
+
+    // categories
+    public function categories()
+    {
+        return view('pages.categories.index');
+    }
 }
