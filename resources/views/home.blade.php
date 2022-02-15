@@ -16,35 +16,40 @@
 @section('content')
 
 @if(session('error'))
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Oops!</strong> {{ session('error') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Oops!</strong> {{ session('error') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     </div>
+</div>
 @endif
 
 <!-- Search Courses -->
-{{-- <form action="{{ url('explore/course') }}" method="GET">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1 class="find-courses"><b>Find</b> Courses</h1>
-        </div>
+<form action="{{ url('explore/course') }}" method="GET">
+    <div class="row mt-5">
         <div class="col-md-12">
             <div class="input-group mb-3">
                 <input type="text" class="form-control form-control-lg" name="c" placeholder="Find your favourite courses" required>
                 <div class="input-group-append">
-                <button class="btn btn-outline-danger" type="submit">Search Course</button>
+                <button class="btn btn-danger" type="submit">Search Course</button>
                 </div>
             </div>
         </div>
     </div>
-</form> --}}
+</form>
 
 @if($courses->isEmpty())
-    <div class="alert alert-info" role="alert">
-        The course has not yet been uploaded and will be updated shortly, we will expedite the process as soon as possible.
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            The course has not yet been uploaded and will be updated shortly, we will expedite the process as soon as possible.
+        </div>
     </div>
+</div>
 @else    
     
     {{-- Latest Courses --}}

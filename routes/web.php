@@ -24,7 +24,7 @@ Auth::routes();
 */
 
 Route::get('explore', 'HomeController@index')->name('home');
-// Route::get('explore/course', 'HomeController@search_courses');
+Route::get('explore/course', 'HomeController@search_courses');
 
 // User Courses
 // Route::get('mycourses', 'HomeController@mycourses');
@@ -55,6 +55,10 @@ Route::get('signout', 'HomeController@signout');
 // Choose Interest Page
 Route::get('choose-interest', 'HomeController@choose_interest');
 Route::post('choose-interest/store', 'HomeController@store_interest');
+
+// Categories
+Route::get('categories', 'HomeController@categories');
+Route::get('categories/{choose}', 'HomeController@choose_categories');
 
 
 /*
