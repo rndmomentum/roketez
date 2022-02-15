@@ -482,9 +482,18 @@ class HomeController extends Controller
         return redirect('explore');
     }
 
-    // categories
+    // Categories
     public function categories()
     {
         return view('pages.categories.index');
+    }
+
+    // Choose Categories
+    public function choose_categories($choose)
+    {   
+        $category = $choose;
+        $courses = Courses::where('category', $choose)->inRandomOrder()->get();
+        
+        return view('pages.categories.choose', compact('courses', 'category'));
     }
 }

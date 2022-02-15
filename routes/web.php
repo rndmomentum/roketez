@@ -58,6 +58,7 @@ Route::post('choose-interest/store', 'HomeController@store_interest');
 
 // Categories
 Route::get('categories', 'HomeController@categories');
+Route::get('categories/{choose}', 'HomeController@choose_categories');
 
 
 /*

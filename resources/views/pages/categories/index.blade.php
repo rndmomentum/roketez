@@ -12,7 +12,7 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <a href="#" class="text-decoration-none text-dark">
+        <a href="{{ url('categories') }}/marketing" class="text-decoration-none text-dark">
             <div class="card">
                 <div class="card-body text-center">
                     <h1><i class="fas fa-bullhorn"></i></h1>
@@ -22,7 +22,7 @@
         </a>
     </div>
     <div class="col-md-4">
-        <a href="#" class="text-decoration-none text-dark">
+        <a href="{{ url('categories') }}/sales" class="text-decoration-none text-dark">
             <div class="card">
                 <div class="card-body text-center">
                     <h1><i class="fas fa-dollar-sign"></i></h1>
@@ -32,7 +32,7 @@
         </a>
     </div>
     <div class="col-md-4">
-        <a href="#" class="text-decoration-none text-dark">
+        <a href="{{ url('categories') }}/motivation" class="text-decoration-none text-dark">
             <div class="card">
                 <div class="card-body text-center">
                     <h1><i class="fas fa-grin-hearts"></i></h1>
@@ -44,7 +44,7 @@
 </div>
 <div class="row mt-3">
     <div class="col-md-4">
-        <a href="#" class="text-decoration-none text-dark">
+        <a href="{{ url('categories') }}/copywriting" class="text-decoration-none text-dark">
             <div class="card">
                 <div class="card-body text-center">
                     <h1><i class="fas fa-feather-alt"></i></h1>
@@ -54,12 +54,14 @@
         </a>
     </div>
     <div class="col-md-4">
-        <div class="card">
-            <div class="card-body text-center">
-                <h1><i class="fas fa-palette"></i></h1>
-                <h3 class="mt-2">Branding</h3>
+         <a href="{{ url('categories') }}/branding" class="text-decoration-none text-dark">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h1><i class="fas fa-palette"></i></h1>
+                    <h3 class="mt-2">Branding</h3>
+                </div>
             </div>
-        </div>
+         </a>
     </div>
 </div>
 @endsection
