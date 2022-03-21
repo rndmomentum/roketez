@@ -36,7 +36,6 @@
 
     <div class="col-md-12">
         <form action="{{ url('admin/user/search') }}" method="GET" class="needs-validation" novalidate>
-            @csrf
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="search" placeholder="Search Users" required>
                 <div class="input-group-append">
@@ -59,6 +58,7 @@
                 <a class="dropdown-item" href="{{ url('admin/user/list') }}/incomplete_expired">Incomplete Expired</a>
                 <a class="dropdown-item" href="{{ url('admin/user/list') }}/past_due">Past Due</a>
                 <a class="dropdown-item" href="{{ url('admin/user/list') }}/canceled">Canceled</a>
+                <a class="dropdown-item" href="{{ url('admin/user/list') }}/trialing">Trialing</a>
             </div>
         </div>
     </div>
@@ -101,6 +101,10 @@
 
                         @if($user->status == 'canceled')
                             <span class="badge badge-dark">Canceled</span>
+                        @endif
+
+                        @if($user->status == 'trialing')
+                            <span class="badge badge-dark">Trialing</span>
                         @endif
 
                         @if($user->status == 'incomplete_expired')
