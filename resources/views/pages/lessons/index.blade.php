@@ -27,7 +27,7 @@
 @endsection
 
 @section('content')
-    @if($user->status == 'active')
+    @if($user->status == 'active' || $user->status == 'trialing')
         <div class="row">
             <div class="col-md-12 display-content" style="background-color: #171717;">
                 <div class="embed-responsive embed-responsive-21by9">
