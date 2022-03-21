@@ -104,7 +104,7 @@
                         @endif
 
                         @if($user->status == 'trialing')
-                            <span class="badge badge-dark">Trialing</span>
+                            <span class="badge badge-info">Trialing</span>
                         @endif
 
                         @if($user->status == 'incomplete_expired')
